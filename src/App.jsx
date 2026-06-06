@@ -4,12 +4,15 @@ import { Sidebar } from './components/Sidebar';
 import { FilterBar } from './components/FilterBar';
 import { VehicleCard } from './components/VehicleCard';
 import { VehicleDetail } from './components/VehicleDetail';
+import { Nosotros } from './components/Nosotros';
+import { Contacto } from './components/Contacto';
 
 const vehicles = [
   {
     id: 1,
     name: 'Mitsubishi Nativa 2.8',
     subtitle: '4x4 · Diesel · 2008',
+    category: '4x4 / SUV',
     tags: ['Off-road', 'Familia', 'Ruta'],
     fit: 80,
     description: 'SUV robusta ideal para terrenos difíciles y viajes largos en familia. Motor diesel confiable con excelente torque y consumo moderado.',
@@ -35,6 +38,7 @@ const vehicles = [
     id: 2,
     name: 'Toyota Prado GX-r',
     subtitle: '4x4 · Diesel · 2007',
+    category: '4x4 / SUV',
     tags: ['Off-road', 'Familia'],
     fit: 87,
     description: 'SUV premium con destacada capacidad todoterreno y confort superior. Reconocida por su durabilidad y valor de reventa.',
@@ -60,6 +64,7 @@ const vehicles = [
     id: 3,
     name: 'Toyota Prado Sahara TX',
     subtitle: '4x4 · Diesel · 2010',
+    category: '4x4 / SUV',
     tags: ['Ciudad', 'Ruta', 'Familia'],
     fit: 92,
     description: 'Versión tope de gama con máximo equipamiento. Combina lujo, tecnología y capacidad todoterreno en un paquete completo.',
@@ -85,6 +90,7 @@ const vehicles = [
     id: 4,
     name: 'Toyota Hilux DC 4x4',
     subtitle: '4x4 · Diesel · 2011',
+    category: 'Camionetas',
     tags: ['Trabajo', 'Off-road'],
     fit: 75,
     description: 'Pickup indestructible diseñada para trabajo pesado. Ofrece capacidad de carga superior y tracción 4x4 confiable.',
@@ -110,6 +116,7 @@ const vehicles = [
     id: 5,
     name: 'VW Amarok 2.0 TDI',
     subtitle: '4x4 · Diesel · 2013',
+    category: 'Camionetas',
     tags: ['Trabajo', 'Ruta'],
     fit: 70,
     description: 'Pickup europea con enfoque en confort y tecnología. Motor biturbo potente y tracción 4Motion permanente.',
@@ -135,6 +142,7 @@ const vehicles = [
     id: 6,
     name: 'Ford Ecosport 1.6',
     subtitle: 'Nafta · 2015',
+    category: 'Compactos',
     tags: ['Ciudad', 'Familia'],
     fit: 83,
     description: 'SUV compacta perfecta para ciudad. Ágil en tráfico, fácil de estacionar y económica en consumo urbano.',
@@ -158,69 +166,126 @@ const vehicles = [
   }
 ];
 
+// Mapeo: link del Header → nombre de vista
+const HEADER_VIEW_MAP = {
+  'Vehículos': 'vehicles',
+  'Nosotros': 'nosotros',
+  'Contacto': 'contacto',
+};
+
 export default function App() {
+  const [currentView, setCurrentView] = useState('vehicles');   // 'vehicles' | 'nosotros' | 'contacto'
   const [activeFilter, setActiveFilter] = useState('Todos');
+  const [sidebarCategory, setSidebarCategory] = useState('Todos los vehículos');
   const [selectedVehicle, setSelectedVehicle] = useState(null);
 
-  const filteredVehicles = activeFilter === 'Todos'
-    ? vehicles
-    : vehicles.filter(v => v.tags.some(tag => {
-        if (activeFilter === 'Ruta larga') return tag === 'Ruta';
-        return tag === activeFilter;
-      }));
+  // Qué link del Header aparece activo
+  const activeNav = Object.entries(HEADER_VIEW_MAP).find(([, v]) => v === currentView)?.[0] ?? 'Vehículos';
 
+  function handleNavChange(link) {
+    const view = HEADER_VIEW_MAP[link];
+    if (!view) return; // Comparador / Asesor IA: sin vista aún
+    setCurrentView(view);
+    setSelectedVehicle(null);
+  }
+
+  function handleSidebarCategory(link) {
+    setSidebarCategory(link);
+    setActiveFilter('Todos');
+    setCurrentView('vehicles');
+    setSelectedVehicle(null);
+  }
+
+  // ── Vista: detalle de vehículo ──────────────────────────────────────────────
   if (selectedVehicle !== null) {
     const vehicle = vehicles.find(v => v.id === selectedVehicle);
     if (vehicle) {
       return (
         <div className="min-h-screen bg-[#f0f0f0]">
-          <Header activeNav="Vehículos" />
+          <Header activeNav={activeNav} onNavChange={handleNavChange} />
           <div className="max-w-[1100px] mx-auto py-6 px-5">
-            <VehicleDetail
-              vehicle={vehicle}
-              onBack={() => setSelectedVehicle(null)}
-            />
+            <VehicleDetail vehicle={vehicle} onBack={() => setSelectedVehicle(null)} />
           </div>
         </div>
       );
     }
   }
 
+  // ── Vistas sin sidebar (Nosotros / Contacto) ───────────────────────────────
+  if (currentView === 'nosotros' || currentView === 'contacto') {
+    return (
+      <div className="min-h-screen bg-[#f0f0f0]">
+        <Header activeNav={activeNav} onNavChange={handleNavChange} />
+        <div className="max-w-[1100px] mx-auto py-6 px-5">
+          {currentView === 'nosotros' && <Nosotros />}
+          {currentView === 'contacto' && <Contacto />}
+        </div>
+      </div>
+    );
+  }
+
+  // ── Vista principal: catálogo ──────────────────────────────────────────────
+  const filteredVehicles = vehicles
+    .filter(v =>
+      sidebarCategory === 'Todos los vehículos' || v.category === sidebarCategory
+    )
+    .filter(v =>
+      activeFilter === 'Todos' ||
+      v.tags.some(tag => {
+        if (activeFilter === 'Ruta larga') return tag === 'Ruta';
+        return tag === activeFilter;
+      })
+    );
+
   return (
     <div className="min-h-screen bg-[#f0f0f0]">
-      <Header activeNav="Vehículos" />
+      <Header activeNav={activeNav} onNavChange={handleNavChange} />
 
       <div className="max-w-[1100px] mx-auto py-6 px-5">
         <div className="flex gap-5">
-          <Sidebar activeLink="Todos los vehículos" />
+          <Sidebar
+            activeLink={sidebarCategory}
+            onVehicleCategoryChange={handleSidebarCategory}
+          />
 
           <main className="flex-1 min-w-0">
             <div className="mb-4">
               <span className="text-[11px] text-[#9a9a9a]">
                 Inicio › <span className="text-[#cc0000]">Vehículos</span>
+                {sidebarCategory !== 'Todos los vehículos' && (
+                  <> › <span className="text-[#1a1a1a]">{sidebarCategory}</span></>
+                )}
               </span>
             </div>
 
-            <FilterBar
-              activeFilter={activeFilter}
-              onFilterChange={setActiveFilter}
-            />
+            <FilterBar activeFilter={activeFilter} onFilterChange={setActiveFilter} />
 
             <div className="mt-4 mb-3">
               <span className="text-[12px] text-[#9a9a9a]">
-                Mostrando <span className="font-semibold text-[#1a1a1a]">{filteredVehicles.length}</span> vehículos
+                Mostrando{' '}
+                <span className="font-semibold text-[#1a1a1a]">{filteredVehicles.length}</span>{' '}
+                vehículos
               </span>
             </div>
 
-            <div className="grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-3">
-              {filteredVehicles.map((vehicle) => (
-                <VehicleCard
-                  key={vehicle.id}
-                  vehicle={vehicle}
-                  onClick={() => setSelectedVehicle(vehicle.id)}
-                />
-              ))}
-            </div>
+            {filteredVehicles.length > 0 ? (
+              <div className="grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-3">
+                {filteredVehicles.map((vehicle) => (
+                  <VehicleCard
+                    key={vehicle.id}
+                    vehicle={vehicle}
+                    onClick={() => setSelectedVehicle(vehicle.id)}
+                  />
+                ))}
+              </div>
+            ) : (
+              <div className="flex flex-col items-center justify-center py-16 text-center">
+                <span className="text-[32px] mb-3">🔍</span>
+                <p className="text-[14px] text-[#9a9a9a]">
+                  No hay vehículos en esta categoría todavía.
+                </p>
+              </div>
+            )}
           </main>
         </div>
       </div>

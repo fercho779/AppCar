@@ -1,4 +1,4 @@
-export function Header({ activeNav }) {
+export function Header({ activeNav, onNavChange }) {
   const navLinks = [
     'Vehículos',
     'Comparador',
@@ -23,6 +23,7 @@ export function Header({ activeNav }) {
           <a
             key={link}
             href="#"
+            onClick={(e) => { e.preventDefault(); onNavChange(link); }}
             className={`px-3 py-1.5 text-[12px] rounded-full transition-colors ${
               activeNav === link
                 ? 'text-white bg-white/[0.07]'

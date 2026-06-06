@@ -1,4 +1,4 @@
-export function Sidebar({ activeLink }) {
+export function Sidebar({ activeLink, onVehicleCategoryChange }) {
   const sections = [
     {
       category: 'VEHÍCULOS',
@@ -14,11 +14,7 @@ export function Sidebar({ activeLink }) {
     {
       category: 'INFO ÚTIL',
       links: [
-        'Guía de compra',
-        'Mantenimiento',
-        'Financiación',
-        'Seguro',
-        'Transferencias'
+        'Guía de compra'
       ]
     }
   ];
@@ -38,14 +34,21 @@ export function Sidebar({ activeLink }) {
           <div className="divide-y divide-[#e2e2e2]">
             {section.links.map((link) => {
               const isActive = activeLink === link;
+              const isVehicleLink = section.category === 'VEHÍCULOS';
               return (
                 <a
                   key={link}
                   href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    if (isVehicleLink) onVehicleCategoryChange(link);
+                  }}
                   className={`block px-3 py-2.5 text-[13px] transition-colors ${
                     isActive
                       ? 'text-[#cc0000] bg-[#fff0f0] border-l-[3px] border-l-[#cc0000]'
-                      : 'text-[#1a1a1a] hover:bg-[#f8f8f8]'
+                      : isVehicleLink
+                        ? 'text-[#1a1a1a] hover:bg-[#f8f8f8]'
+                        : 'text-[#9a9a9a] cursor-default'
                   }`}
                 >
                   {link}
