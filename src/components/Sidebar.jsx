@@ -1,4 +1,4 @@
-export function Sidebar({ activeLink, onVehicleCategoryChange }) {
+export function Sidebar({ activeLink, onVehicleCategoryChange, onInfoLinkChange }) {
   const sections = [
     {
       category: 'VEHÍCULOS',
@@ -35,6 +35,7 @@ export function Sidebar({ activeLink, onVehicleCategoryChange }) {
             {section.links.map((link) => {
               const isActive = activeLink === link;
               const isVehicleLink = section.category === 'VEHÍCULOS';
+              const isInfoLink = section.category === 'INFO ÚTIL';
               return (
                 <a
                   key={link}
@@ -42,11 +43,12 @@ export function Sidebar({ activeLink, onVehicleCategoryChange }) {
                   onClick={(e) => {
                     e.preventDefault();
                     if (isVehicleLink) onVehicleCategoryChange(link);
+                    if (isInfoLink) onInfoLinkChange(link);
                   }}
                   className={`block px-3 py-2.5 text-[13px] transition-colors ${
                     isActive
                       ? 'text-[#cc0000] bg-[#fff0f0] border-l-[3px] border-l-[#cc0000]'
-                      : isVehicleLink
+                      : isVehicleLink || isInfoLink
                         ? 'text-[#1a1a1a] hover:bg-[#f8f8f8]'
                         : 'text-[#9a9a9a] cursor-default'
                   }`}

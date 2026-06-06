@@ -6,6 +6,7 @@ import { VehicleCard } from './components/VehicleCard';
 import { VehicleDetail } from './components/VehicleDetail';
 import { Nosotros } from './components/Nosotros';
 import { Contacto } from './components/Contacto';
+import { GuiaDeCompra } from './components/GuiaDeCompra';
 
 const vehicles = [
   {
@@ -196,6 +197,16 @@ export default function App() {
     setSelectedVehicle(null);
   }
 
+  // Mapa de links INFO ÚTIL → vista
+  const INFO_VIEW_MAP = { 'Guía de compra': 'guia' };
+
+  function handleInfoLink(link) {
+    const view = INFO_VIEW_MAP[link];
+    if (!view) return;
+    setCurrentView(view);
+    setSelectedVehicle(null);
+  }
+
   // ── Vista: detalle de vehículo ──────────────────────────────────────────────
   if (selectedVehicle !== null) {
     const vehicle = vehicles.find(v => v.id === selectedVehicle);
@@ -224,6 +235,32 @@ export default function App() {
     );
   }
 
+  // ── Vista: Guía de compra (con sidebar visible) ────────────────────────────
+  if (currentView === 'guia') {
+    return (
+      <div className="min-h-screen bg-[#f0f0f0]">
+        <Header activeNav={activeNav} onNavChange={handleNavChange} />
+        <div className="max-w-[1100px] mx-auto py-6 px-5">
+          <div className="flex gap-5">
+            <Sidebar
+              activeLink="Guía de compra"
+              onVehicleCategoryChange={handleSidebarCategory}
+              onInfoLinkChange={handleInfoLink}
+            />
+            <main className="flex-1 min-w-0">
+              <div className="mb-4">
+                <span className="text-[11px] text-[#9a9a9a]">
+                  Inicio › <span className="text-[#cc0000]">Guía de compra</span>
+                </span>
+              </div>
+              <GuiaDeCompra />
+            </main>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   // ── Vista principal: catálogo ──────────────────────────────────────────────
   const filteredVehicles = vehicles
     .filter(v =>
@@ -246,6 +283,7 @@ export default function App() {
           <Sidebar
             activeLink={sidebarCategory}
             onVehicleCategoryChange={handleSidebarCategory}
+            onInfoLinkChange={handleInfoLink}
           />
 
           <main className="flex-1 min-w-0">
