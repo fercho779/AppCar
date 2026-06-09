@@ -7,6 +7,7 @@ import { VehicleDetail } from './components/VehicleDetail';
 import { Nosotros } from './components/Nosotros';
 import { Contacto } from './components/Contacto';
 import { GuiaDeCompra } from './components/GuiaDeCompra';
+import { VehicleComparator } from './components/VehicleComparator';
 
 const vehicles = [
   // ── 4x4 / SUV ───────────────────────────────────────────────────────────────
@@ -548,6 +549,7 @@ export default function App() {
   const [activeFilter, setActiveFilter] = useState('Todos');
   const [sidebarCategory, setSidebarCategory] = useState('Todos los vehículos');
   const [selectedVehicle, setSelectedVehicle] = useState(null);
+  const [compareVehicle, setCompareVehicle] = useState(null); // id del vehículo B
 
   // Qué link del Header aparece activo
   const activeNav = Object.entries(HEADER_VIEW_MAP).find(([, v]) => v === currentView)?.[0] ?? 'Vehículos';
@@ -557,6 +559,7 @@ export default function App() {
     if (!view) return; // Comparador / Asesor IA: sin vista aún
     setCurrentView(view);
     setSelectedVehicle(null);
+    setCompareVehicle(null);
   }
 
   function handleSidebarCategory(link) {
@@ -564,6 +567,7 @@ export default function App() {
     setActiveFilter('Todos');
     setCurrentView('vehicles');
     setSelectedVehicle(null);
+    setCompareVehicle(null);
   }
 
   // Mapa de links INFO ÚTIL → vista
@@ -579,12 +583,38 @@ export default function App() {
   // ── Vista: detalle de vehículo ──────────────────────────────────────────────
   if (selectedVehicle !== null) {
     const vehicle = vehicles.find(v => v.id === selectedVehicle);
+    const vehicleB = compareVehicle !== null ? vehicles.find(v => v.id === compareVehicle) : null;
+
     if (vehicle) {
       return (
         <div className="min-h-screen bg-[#f0f0f0]">
           <Header activeNav={activeNav} onNavChange={handleNavChange} />
           <div className="max-w-[1100px] mx-auto py-6 px-5">
-            <VehicleDetail vehicle={vehicle} onBack={() => setSelectedVehicle(null)} />
+            <VehicleDetail
+              vehicle={vehicle}
+              onBack={() => { setSelectedVehicle(null); setCompareVehicle(null); }}
+              onCompare={() => setCompareVehicle(-1)} // -1 = abre buscador sin vehículo B elegido
+            />
+            {/* Comparador: si compareVehicle === -1 mostramos el modal de búsqueda directo */}
+            {compareVehicle !== null && compareVehicle === -1 && (
+              <VehicleComparator
+                vehicleA={vehicle}
+                vehicleB={null}
+                vehicles={vehicles}
+                onClose={() => setCompareVehicle(null)}
+                onChangeB={(v) => setCompareVehicle(v.id)}
+                openSearchImmediately
+              />
+            )}
+            {vehicleB && compareVehicle !== -1 && (
+              <VehicleComparator
+                vehicleA={vehicle}
+                vehicleB={vehicleB}
+                vehicles={vehicles}
+                onClose={() => setCompareVehicle(null)}
+                onChangeB={(v) => setCompareVehicle(v.id)}
+              />
+            )}
           </div>
         </div>
       );
