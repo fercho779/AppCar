@@ -4,6 +4,9 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   base: '/AppCar/',
+  build: {
+    outDir: 'docs',
+  },
   plugins: [
     react(),
     tailwindcss(),

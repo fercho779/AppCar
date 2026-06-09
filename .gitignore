@@ -10,6 +10,7 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+# docs/ no se ignora — es el output del build para GitHub Pages
 *.local
 
 # Claude Code local config
