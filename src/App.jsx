@@ -8,6 +8,7 @@ import { Nosotros } from './components/Nosotros';
 import { Contacto } from './components/Contacto';
 import { GuiaDeCompra } from './components/GuiaDeCompra';
 import { VehicleComparator } from './components/VehicleComparator';
+import { ComparadorPage } from './components/ComparadorPage';
 
 const vehicles = [
   // ── 4x4 / SUV ───────────────────────────────────────────────────────────────
@@ -540,6 +541,7 @@ const vehicles = [
 // Mapeo: link del Header → nombre de vista
 const HEADER_VIEW_MAP = {
   'Vehículos': 'vehicles',
+  'Comparador': 'comparador',
   'Nosotros': 'nosotros',
   'Contacto': 'contacto',
 };
@@ -619,6 +621,23 @@ export default function App() {
         </div>
       );
     }
+  }
+
+  // ── Vista: Comparador standalone ──────────────────────────────────────────
+  if (currentView === 'comparador') {
+    return (
+      <div className="min-h-screen bg-[#f0f0f0]">
+        <Header activeNav="Comparador" onNavChange={handleNavChange} />
+        <div className="max-w-[1100px] mx-auto py-6 px-5">
+          <div className="mb-4">
+            <span className="text-[11px] text-[#9a9a9a]">
+              Inicio › <span className="text-[#cc0000]">Comparador</span>
+            </span>
+          </div>
+          <ComparadorPage vehicles={vehicles} />
+        </div>
+      </div>
+    );
   }
 
   // ── Vistas sin sidebar (Nosotros / Contacto) ───────────────────────────────
