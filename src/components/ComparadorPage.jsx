@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { VehicleCard } from './VehicleCard';
 import { VehicleComparator } from './VehicleComparator';
 
-export function ComparadorPage({ vehicles }) {
+export function ComparadorPage({ vehicles, onBack }) {
   const [vehicleA, setVehicleA] = useState(null);
   const [vehicleB, setVehicleB] = useState(null);
 
@@ -10,6 +10,13 @@ export function ComparadorPage({ vehicles }) {
   if (!vehicleA) {
     return (
       <div className="flex flex-col gap-5">
+
+        <button
+          onClick={onBack}
+          className="self-start px-4 py-2 bg-white border border-[#e2e2e2] rounded-[10px] text-[13px] text-[#1a1a1a] hover:border-[#cc0000] transition-colors"
+        >
+          ← Volver al catálogo
+        </button>
 
         {/* Hero */}
         <div className="bg-[#1a1a1a] rounded-[16px] px-8 py-7 flex flex-col gap-2">
@@ -43,25 +50,33 @@ export function ComparadorPage({ vehicles }) {
   return (
     <div className="flex flex-col gap-0">
 
-      {/* Barra superior con vehículo seleccionado y opción de cambiar */}
-      <div className="bg-[#1a1a1a] rounded-[16px] px-6 py-4 flex items-center justify-between mb-0">
-        <div className="flex items-center gap-3">
-          <span className="text-[#cc0000] text-[13px]">⇄</span>
-          <div>
-            <span className="text-[#888] text-[10px] uppercase tracking-wider block">
-              Vehículo base seleccionado
-            </span>
-            <span className="text-white text-[14px] font-semibold">
-              {vehicleA.name}
-            </span>
-          </div>
-        </div>
+      {/* Botonera superior */}
+      <div className="flex items-center justify-between mb-4">
+        <button
+          onClick={onBack}
+          className="px-4 py-2 bg-white border border-[#e2e2e2] rounded-[10px] text-[13px] text-[#1a1a1a] hover:border-[#cc0000] transition-colors"
+        >
+          ← Volver al catálogo
+        </button>
         <button
           onClick={() => { setVehicleA(null); setVehicleB(null); }}
-          className="text-[#666] hover:text-white text-[12px] transition-colors"
+          className="px-4 py-2 bg-white border border-[#e2e2e2] rounded-[10px] text-[13px] text-[#1a1a1a] hover:border-[#cc0000] transition-colors"
         >
-          ← Cambiar vehículo base
+          ↺ Cambiar vehículo base
         </button>
+      </div>
+
+      {/* Barra del vehículo A */}
+      <div className="bg-[#1a1a1a] rounded-[16px] px-6 py-4 flex items-center gap-3 mb-0">
+        <span className="text-[#cc0000] text-[13px]">⇄</span>
+        <div>
+          <span className="text-[#888] text-[10px] uppercase tracking-wider block">
+            Vehículo base seleccionado
+          </span>
+          <span className="text-white text-[14px] font-semibold">
+            {vehicleA.name}
+          </span>
+        </div>
       </div>
 
       {/* Comparador: maneja modal de búsqueda de B internamente */}

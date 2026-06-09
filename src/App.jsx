@@ -634,7 +634,7 @@ export default function App() {
               Inicio › <span className="text-[#cc0000]">Comparador</span>
             </span>
           </div>
-          <ComparadorPage vehicles={vehicles} />
+          <ComparadorPage vehicles={vehicles} onBack={() => setCurrentView('vehicles')} />
         </div>
       </div>
     );
@@ -646,8 +646,8 @@ export default function App() {
       <div className="min-h-screen bg-[#f0f0f0]">
         <Header activeNav={activeNav} onNavChange={handleNavChange} />
         <div className="max-w-[1100px] mx-auto py-6 px-5">
-          {currentView === 'nosotros' && <Nosotros />}
-          {currentView === 'contacto' && <Contacto />}
+          {currentView === 'nosotros' && <Nosotros onBack={() => setCurrentView('vehicles')} />}
+          {currentView === 'contacto' && <Contacto onBack={() => setCurrentView('vehicles')} />}
         </div>
       </div>
     );
@@ -671,7 +671,7 @@ export default function App() {
                   Inicio › <span className="text-[#cc0000]">Guía de compra</span>
                 </span>
               </div>
-              <GuiaDeCompra />
+              <GuiaDeCompra onBack={() => setCurrentView('vehicles')} />
             </main>
           </div>
         </div>

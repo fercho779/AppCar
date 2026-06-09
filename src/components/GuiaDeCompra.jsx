@@ -85,9 +85,16 @@ const checklist = [
   'Precio acordado por escrito antes de la transferencia',
 ];
 
-export function GuiaDeCompra() {
+export function GuiaDeCompra({ onBack }) {
   return (
     <div className="flex flex-col gap-5">
+
+      <button
+        onClick={onBack}
+        className="self-start px-4 py-2 bg-white border border-[#e2e2e2] rounded-[10px] text-[13px] text-[#1a1a1a] hover:border-[#cc0000] transition-colors"
+      >
+        ← Volver al catálogo
+      </button>
 
       {/* Hero */}
       <div className="bg-[#1a1a1a] rounded-[16px] px-8 py-7 flex flex-col gap-2">
