@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 const tagStyles = {
   Ciudad: { color: '#0c447c', bg: '#e6f1fb' },
   'Off-road': { color: '#27500a', bg: '#eaf3de' },
@@ -6,15 +8,26 @@ const tagStyles = {
   Trabajo: { color: '#444441', bg: '#f1efe8' }
 };
 
-export function VehicleDetail({ vehicle, onBack }) {
+export function VehicleDetail({ vehicle, onBack, onCompare }) {
   return (
     <div>
-      <button
-        onClick={onBack}
-        className="mb-5 px-4 py-2 bg-white border border-[#e2e2e2] rounded-[10px] text-[13px] text-[#1a1a1a] hover:border-[#cc0000] transition-colors"
-      >
-        ← Volver al catálogo
-      </button>
+      {/* Barra de acciones superior */}
+      <div className="mb-5 flex items-center justify-between">
+        <button
+          onClick={onBack}
+          className="px-4 py-2 bg-white border border-[#e2e2e2] rounded-[10px] text-[13px] text-[#1a1a1a] hover:border-[#cc0000] transition-colors"
+        >
+          ← Volver al catálogo
+        </button>
+
+        <button
+          onClick={onCompare}
+          className="flex items-center gap-2 px-5 py-2 bg-[#cc0000] text-white text-[13px] font-medium rounded-[10px] hover:bg-[#aa0000] transition-colors"
+        >
+          <span className="text-[15px] leading-none">⇄</span>
+          Comparar vehículo
+        </button>
+      </div>
 
       <div className="bg-white border border-[#e2e2e2] rounded-[16px] overflow-hidden">
         <div className="flex flex-col md:flex-row gap-0">
