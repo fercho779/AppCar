@@ -1,4 +1,6 @@
+import Login from './components/Login';
 import { useState } from 'react';
+import Formulario from "./components/formulario";
 import { Header } from './components/Header';
 import { Sidebar } from './components/Sidebar';
 import { FilterBar } from './components/FilterBar';
@@ -551,7 +553,25 @@ export default function App() {
   const [activeFilter, setActiveFilter] = useState('Todos');
   const [sidebarCategory, setSidebarCategory] = useState('Todos los vehículos');
   const [selectedVehicle, setSelectedVehicle] = useState(null);
-  const [compareVehicle, setCompareVehicle] = useState(null); // id del vehículo B
+  const [compareVehicle, setCompareVehicle] = useState(null);
+  const [logueado, setLogueado] = useState(false);
+const [mostrarRegistro, setMostrarRegistro] = useState(false);
+  if (!logueado) {
+  if (mostrarRegistro) {
+    return (
+      <Formulario
+        onRegister={() => setMostrarRegistro(false)}
+      />
+    );
+  }
+
+  return (
+    <Login
+      onLogin={() => setLogueado(true)}
+      onGoToRegister={() => setMostrarRegistro(true)}
+    />
+  );
+}
 
   // Qué link del Header aparece activo
   const activeNav = Object.entries(HEADER_VIEW_MAP).find(([, v]) => v === currentView)?.[0] ?? 'Vehículos';
