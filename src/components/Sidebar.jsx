@@ -1,22 +1,35 @@
-export function Sidebar({ activeLink, onVehicleCategoryChange, onInfoLinkChange }) {
+export function Sidebar({
+  activeLink,
+  onVehicleCategoryChange,
+  onInfoLinkChange,
+  categories = [],
+  activeMarca,
+  onMarcaChange,
+  marcas = [],
+}) {
   const sections = [
     {
       category: 'VEHÍCULOS',
-      links: [
-        'Todos los vehículos',
-        'Compactos',
-        'Sedanes',
-        '4x4 / SUV',
-        'Camionetas',
-        'Motos'
-      ]
+      links: ['Todos los vehículos', ...categories],
+      onClick: onVehicleCategoryChange,
+      isActive: (link) => activeLink === link,
     },
+    ...(marcas.length > 0
+      ? [
+          {
+            category: 'MARCA',
+            links: ['Todas las marcas', ...marcas],
+            onClick: onMarcaChange,
+            isActive: (link) => activeMarca === link,
+          },
+        ]
+      : []),
     {
       category: 'INFO ÚTIL',
-      links: [
-        'Guía de compra'
-      ]
-    }
+      links: ['Guía de compra'],
+      onClick: onInfoLinkChange,
+      isActive: (link) => activeLink === link,
+    },
   ];
 
   return (
@@ -33,24 +46,19 @@ export function Sidebar({ activeLink, onVehicleCategoryChange, onInfoLinkChange 
           </div>
           <div className="divide-y divide-[#e2e2e2]">
             {section.links.map((link) => {
-              const isActive = activeLink === link;
-              const isVehicleLink = section.category === 'VEHÍCULOS';
-              const isInfoLink = section.category === 'INFO ÚTIL';
+              const isActive = section.isActive(link);
               return (
                 <a
                   key={link}
                   href="#"
                   onClick={(e) => {
                     e.preventDefault();
-                    if (isVehicleLink) onVehicleCategoryChange(link);
-                    if (isInfoLink) onInfoLinkChange(link);
+                    section.onClick?.(link);
                   }}
                   className={`block px-3 py-2.5 text-[13px] transition-colors ${
                     isActive
                       ? 'text-[#cc0000] bg-[#fff0f0] border-l-[3px] border-l-[#cc0000]'
-                      : isVehicleLink || isInfoLink
-                        ? 'text-[#1a1a1a] hover:bg-[#f8f8f8]'
-                        : 'text-[#9a9a9a] cursor-default'
+                      : 'text-[#1a1a1a] hover:bg-[#f8f8f8]'
                   }`}
                 >
                   {link}

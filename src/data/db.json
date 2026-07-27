@@ -1,0 +1,1485 @@
+[
+  {
+    "modelo": "Hilux",
+    "marca": "Toyota",
+    "segmento": "Pickup mediana",
+    "carroceria": "Pickup",
+    "versiones": [
+      {
+        "nombre": "DX Cabina Doble 4x2 MT",
+        "imagen_url": "src/assets/vehicles/toyota/hilux/dx.png",
+        "descripcion": "Versión de entrada enfocada en el trabajo pesado y flotas, priorizando durabilidad y bajo costo operativo.",
+        "tags": [
+          "Diésel",
+          "4x2",
+          "Manual",
+          "Trabajo y flotas",
+          "Potencia moderada",
+          "Bajo consumo"
+        ],
+        "ventajas": [
+          "Robustez probada e indestructibilidad",
+          "Excelente valor de reventa",
+          "Amplia red de repuestos"
+        ],
+        "desventajas": [
+          "Suspensión trasera firme en vacío",
+          "Equipamiento de confort elemental"
+        ],
+        "datos_tecnicos_resumen": {
+          "motor": "2.4L Turbo Diesel",
+          "potencia": "150 CV",
+          "traccion": "4x2",
+          "consumo": "7.8L/100km"
+        },
+        "plazas": 5,
+        "traccion": "4x2",
+        "motor": {
+          "combustible": "Diésel",
+          "turbo": true,
+          "hibrido": false,
+          "electrico": false
+        },
+        "transmision": { "tipo": "Manual", "marchas": 6 },
+        "prestaciones": { "velocidad_max_kmh": 170 },
+        "capacidad": { "baul_l": 1000, "tanque_combustible_l": 80 },
+        "garantia": { "anos": 5, "km": 150000 },
+        "seguridad": {
+          "abs": true,
+          "control_estabilidad": true,
+          "control_traccion": true,
+          "asistente_arranque_pendiente": true,
+          "airbags": 7,
+          "isofix": true,
+          "camara_retroceso": true,
+          "sensores_estacionamiento": false,
+          "control_crucero": true,
+          "alerta_colision": false,
+          "frenado_autonomo": false,
+          "mantenimiento_carril": false
+        },
+        "confort": {
+          "pantalla_pulgadas": 8,
+          "apple_carplay_android_auto": true,
+          "climatizador": "Manual",
+          "acceso_sin_llave": false,
+          "arranque_boton": false,
+          "cargador_inalambrico": false,
+          "techo_panoramico": false
+        },
+        "exterior": { "faros_led": false, "llantas": "Acero 17\"" }
+      },
+      {
+        "nombre": "SRV Cabina Doble 4x4 AT",
+        "imagen_url": "src/assets/vehicles/toyota/hilux/srv.png",
+        "descripcion": "El equilibrio ideal entre capacidad todoterreno, potencia y equipamiento para uso personal o mixto.",
+        "tags": [
+          "Diésel",
+          "4x4",
+          "Automática",
+          "Uso mixto y off-road",
+          "Alta potencia",
+          "Consumo moderado"
+        ],
+        "ventajas": [
+          "Motor 2.8L con gran torque",
+          "Tracción 4x4 con reductora",
+          "Gran capacidad de remolque"
+        ],
+        "desventajas": [
+          "Sin paquete completo de asistencias ADAS",
+          "Andar algo saltarín sin carga"
+        ],
+        "datos_tecnicos_resumen": {
+          "motor": "2.8L Turbo Diesel",
+          "potencia": "204 CV",
+          "traccion": "4x4",
+          "consumo": "8.5L/100km"
+        },
+        "plazas": 5,
+        "traccion": "4x4",
+        "motor": {
+          "combustible": "Diésel",
+          "turbo": true,
+          "hibrido": false,
+          "electrico": false
+        },
+        "transmision": { "tipo": "Automática", "marchas": 6 },
+        "prestaciones": { "velocidad_max_kmh": 180 },
+        "capacidad": { "baul_l": 1000, "tanque_combustible_l": 80 },
+        "garantia": { "anos": 5, "km": 150000 },
+        "seguridad": {
+          "abs": true,
+          "control_estabilidad": true,
+          "control_traccion": true,
+          "asistente_arranque_pendiente": true,
+          "airbags": 7,
+          "isofix": true,
+          "camara_retroceso": true,
+          "sensores_estacionamiento": true,
+          "control_crucero": true,
+          "alerta_colision": false,
+          "frenado_autonomo": false,
+          "mantenimiento_carril": false
+        },
+        "confort": {
+          "pantalla_pulgadas": 8,
+          "apple_carplay_android_auto": true,
+          "climatizador": "Automático bizona",
+          "acceso_sin_llave": true,
+          "arranque_boton": true,
+          "cargador_inalambrico": false,
+          "techo_panoramico": false
+        },
+        "exterior": { "faros_led": true, "llantas": "Aleación 17\"" }
+      },
+      {
+        "nombre": "SRX Cabina Doble 4x4 AT",
+        "imagen_url": "src/assets/vehicles/toyota/hilux/srx.png",
+        "descripcion": "Versión confort y seguridad tope de gama con trochas ensanchadas para mayor estabilidad y suite Toyota Safety Sense.",
+        "tags": [
+          "Diésel",
+          "4x4",
+          "Automática",
+          "ADAS",
+          "Viajes y confort premium",
+          "Alta potencia",
+          "Consumo moderado"
+        ],
+        "ventajas": [
+          "Completa suite de asistentes a la conducción ADAS",
+          "Mejor comportamiento dinámico por trochas anchas",
+          "Máximo nivel de confort"
+        ],
+        "desventajas": [
+          "Precio elevado",
+          "Radio de giro ligeramente mayor"
+        ],
+        "datos_tecnicos_resumen": {
+          "motor": "2.8L Turbo Diesel",
+          "potencia": "204 CV",
+          "traccion": "4x4",
+          "consumo": "8.5L/100km"
+        },
+        "plazas": 5,
+        "traccion": "4x4",
+        "motor": {
+          "combustible": "Diésel",
+          "turbo": true,
+          "hibrido": false,
+          "electrico": false
+        },
+        "transmision": { "tipo": "Automática", "marchas": 6 },
+        "prestaciones": { "velocidad_max_kmh": 180 },
+        "capacidad": { "baul_l": 1000, "tanque_combustible_l": 80 },
+        "garantia": { "anos": 5, "km": 150000 },
+        "seguridad": {
+          "abs": true,
+          "control_estabilidad": true,
+          "control_traccion": true,
+          "asistente_arranque_pendiente": true,
+          "airbags": 7,
+          "isofix": true,
+          "camara_retroceso": true,
+          "sensores_estacionamiento": true,
+          "control_crucero": true,
+          "alerta_colision": true,
+          "frenado_autonomo": true,
+          "mantenimiento_carril": true
+        },
+        "confort": {
+          "pantalla_pulgadas": 9,
+          "apple_carplay_android_auto": true,
+          "climatizador": "Automático bizona",
+          "acceso_sin_llave": true,
+          "arranque_boton": true,
+          "cargador_inalambrico": true,
+          "techo_panoramico": false
+        },
+        "exterior": { "faros_led": true, "llantas": "Aleación 18\"" }
+      },
+      {
+        "nombre": "GR-Sport IV 4x4 AT",
+        "imagen_url": "src/assets/vehicles/toyota/hilux/gr-sport.png",
+        "descripcion": "Desarrollada por Gazoo Racing con suspensión deportiva de amortiguadores monotubo, trochas extendidas y mayor potencia.",
+        "tags": [
+          "Diésel",
+          "4x4",
+          "Automática",
+          "Off-road extremo",
+          "Deportivo",
+          "Alta potencia",
+          "Consumo moderado"
+        ],
+        "ventajas": [
+          "Motor potenciado a 224 CV y alto torque",
+          "Suspensión de alto desempeño para off-road veloz",
+          "Estética deportiva exclusiva"
+        ],
+        "desventajas": [
+          "Menor capacidad de carga útil",
+          "Rodado y repuestos de carrocería específicos"
+        ],
+        "datos_tecnicos_resumen": {
+          "motor": "2.8L Turbo Diesel GR",
+          "potencia": "224 CV",
+          "traccion": "4x4",
+          "consumo": "8.8L/100km"
+        },
+        "plazas": 5,
+        "traccion": "4x4",
+        "motor": {
+          "combustible": "Diésel",
+          "turbo": true,
+          "hibrido": false,
+          "electrico": false
+        },
+        "transmision": { "tipo": "Automática", "marchas": 6 },
+        "prestaciones": { "velocidad_max_kmh": 185 },
+        "capacidad": { "baul_l": 1000, "tanque_combustible_l": 80 },
+        "garantia": { "anos": 5, "km": 150000 },
+        "seguridad": {
+          "abs": true,
+          "control_estabilidad": true,
+          "control_traccion": true,
+          "asistente_arranque_pendiente": true,
+          "airbags": 7,
+          "isofix": true,
+          "camara_retroceso": true,
+          "sensores_estacionamiento": true,
+          "control_crucero": true,
+          "alerta_colision": true,
+          "frenado_autonomo": true,
+          "mantenimiento_carril": true
+        },
+        "confort": {
+          "pantalla_pulgadas": 9,
+          "apple_carplay_android_auto": true,
+          "climatizador": "Automático bizona",
+          "acceso_sin_llave": true,
+          "arranque_boton": true,
+          "cargador_inalambrico": true,
+          "techo_panoramico": false
+        },
+        "exterior": { "faros_led": true, "llantas": "Aleación 17\"" }
+      }
+    ]
+  },
+  {
+    "modelo": "Yaris Cross",
+    "marca": "Toyota",
+    "segmento": "SUV B",
+    "carroceria": "SUV",
+    "versiones": [
+      {
+        "nombre": "XEI 1.5 CVT",
+        "imagen_url": "src/assets/vehicles/toyota/yaris-cross/xei.png",
+        "descripcion": "Opción puramente naftera enfocada en la eficiencia urbana diaria con buena altura al suelo y equipamiento completo.",
+        "tags": [
+          "Nafta",
+          "CVT",
+          "Ciudad y uso diario",
+          "Económico",
+          "Bajo consumo"
+        ],
+        "ventajas": [
+          "Paquete Toyota Safety Sense de serie",
+          "Gran agilidad en el tráfico urbano",
+          "Bajo costo de mantenimiento"
+        ],
+        "desventajas": [
+          "Respuesta de aceleración modesta en ruta",
+          "Capacidad de baúl ajustada"
+        ],
+        "datos_tecnicos_resumen": {
+          "motor": "1.5L Dual VVT-i",
+          "potencia": "106 CV",
+          "traccion": "Delantera",
+          "consumo": "6.2L/100km"
+        },
+        "plazas": 5,
+        "traccion": "Delantera",
+        "motor": {
+          "combustible": "Nafta",
+          "turbo": false,
+          "hibrido": false,
+          "electrico": false
+        },
+        "transmision": { "tipo": "CVT", "marchas": 0 },
+        "prestaciones": { "velocidad_max_kmh": 170 },
+        "capacidad": { "baul_l": 400, "tanque_combustible_l": 42 },
+        "garantia": { "anos": 10, "km": 200000 },
+        "seguridad": {
+          "abs": true,
+          "control_estabilidad": true,
+          "control_traccion": true,
+          "asistente_arranque_pendiente": true,
+          "airbags": 6,
+          "isofix": true,
+          "camara_retroceso": true,
+          "sensores_estacionamiento": true,
+          "control_crucero": true,
+          "alerta_colision": true,
+          "frenado_autonomo": true,
+          "mantenimiento_carril": true
+        },
+        "confort": {
+          "pantalla_pulgadas": 10,
+          "apple_carplay_android_auto": true,
+          "climatizador": "Automático",
+          "acceso_sin_llave": true,
+          "arranque_boton": true,
+          "cargador_inalambrico": true,
+          "techo_panoramico": false
+        },
+        "exterior": { "faros_led": true, "llantas": "Aleación 18\"" }
+      },
+      {
+        "nombre": "SEG Hybrid e-CVT",
+        "imagen_url": "src/assets/vehicles/toyota/yaris-cross/seg-hybrid.png",
+        "descripcion": "Versión híbrida autorrecargable de ultra bajo consumo urbano y terminaciones premium dentro de la gama.",
+        "tags": [
+          "Híbrido",
+          "e-CVT",
+          "Ciudad y uso diario",
+          "Económico",
+          "Ultra bajo consumo",
+          "ADAS"
+        ],
+        "ventajas": [
+          "Consumo imbatible en ciudad (menos de 4L/100km)",
+          "Exención o descuento de patente según jurisdicción",
+          "Garantía de sistema híbrido extendida"
+        ],
+        "desventajas": [
+          "Tanque de combustible más pequeño (36L)",
+          "Capacidad de baúl ligeramente reducida por baterías"
+        ],
+        "datos_tecnicos_resumen": {
+          "motor": "1.5L Híbrido",
+          "potencia": "111 CV",
+          "traccion": "Delantera",
+          "consumo": "3.9L/100km"
+        },
+        "plazas": 5,
+        "traccion": "Delantera",
+        "motor": {
+          "combustible": "Híbrido (Nafta + Eléctrico)",
+          "turbo": false,
+          "hibrido": true,
+          "electrico": false
+        },
+        "transmision": { "tipo": "e-CVT", "marchas": 0 },
+        "prestaciones": { "velocidad_max_kmh": 170 },
+        "capacidad": { "baul_l": 391, "tanque_combustible_l": 36 },
+        "garantia": { "anos": 10, "km": 200000 },
+        "seguridad": {
+          "abs": true,
+          "control_estabilidad": true,
+          "control_traccion": true,
+          "asistente_arranque_pendiente": true,
+          "airbags": 6,
+          "isofix": true,
+          "camara_retroceso": true,
+          "sensores_estacionamiento": true,
+          "control_crucero": true,
+          "alerta_colision": true,
+          "frenado_autonomo": true,
+          "mantenimiento_carril": true
+        },
+        "confort": {
+          "pantalla_pulgadas": 10,
+          "apple_carplay_android_auto": true,
+          "climatizador": "Automático",
+          "acceso_sin_llave": true,
+          "arranque_boton": true,
+          "cargador_inalambrico": true,
+          "techo_panoramico": false
+        },
+        "exterior": { "faros_led": true, "llantas": "Aleación 18\"" }
+      }
+    ]
+  },
+  {
+    "modelo": "Corolla Cross",
+    "marca": "Toyota",
+    "segmento": "SUV C",
+    "carroceria": "SUV",
+    "versiones": [
+      {
+        "nombre": "XEI 2.0 CVT",
+        "imagen_url": "src/assets/vehicles/toyota/corolla-cross/xei.png",
+        "descripcion": "El C-SUV más vendido del mercado, con un potente motor 2.0L naftero con caja CVT de 10 marchas simuladas.",
+        "tags": [
+          "Nafta",
+          "CVT",
+          "Familia y ruta larga",
+          "Potencia moderada",
+          "Bajo consumo"
+        ],
+        "ventajas": [
+          "Excelente motor naftero de rápida respuesta",
+          "Confort de marcha en viajes largos",
+          "Gran espacio habitáculo posterior"
+        ],
+        "desventajas": [
+          "Sin opción de tracción integral 4x4",
+          "Auxilio temporal de menor tamaño"
+        ],
+        "datos_tecnicos_resumen": {
+          "motor": "2.0L Dynamic Force",
+          "potencia": "170 CV",
+          "traccion": "Delantera",
+          "consumo": "6.8L/100km"
+        },
+        "plazas": 5,
+        "traccion": "Delantera",
+        "motor": {
+          "combustible": "Nafta",
+          "turbo": false,
+          "hibrido": false,
+          "electrico": false
+        },
+        "transmision": { "tipo": "CVT", "marchas": 10 },
+        "prestaciones": { "velocidad_max_kmh": 193 },
+        "capacidad": { "baul_l": 440, "tanque_combustible_l": 47 },
+        "garantia": { "anos": 10, "km": 200000 },
+        "seguridad": {
+          "abs": true,
+          "control_estabilidad": true,
+          "control_traccion": true,
+          "asistente_arranque_pendiente": true,
+          "airbags": 7,
+          "isofix": true,
+          "camara_retroceso": true,
+          "sensores_estacionamiento": true,
+          "control_crucero": true,
+          "alerta_colision": true,
+          "frenado_autonomo": true,
+          "mantenimiento_carril": true
+        },
+        "confort": {
+          "pantalla_pulgadas": 10,
+          "apple_carplay_android_auto": true,
+          "climatizador": "Automático bizona",
+          "acceso_sin_llave": true,
+          "arranque_boton": true,
+          "cargador_inalambrico": false,
+          "techo_panoramico": false
+        },
+        "exterior": { "faros_led": true, "llantas": "Aleación 18\"" }
+      },
+      {
+        "nombre": "SEG Hybrid 1.8 e-CVT",
+        "imagen_url": "src/assets/vehicles/toyota/corolla-cross/seg-hybrid.png",
+        "descripcion": "Configuración tope de gama que combina confort premium, techo solar y la tecnología híbrida autorrecargable de Toyota.",
+        "tags": [
+          "Híbrido",
+          "e-CVT",
+          "Familia y ciudad",
+          "Económico",
+          "Ultra bajo consumo",
+          "Premium"
+        ],
+        "ventajas": [
+          "Consumo bajísimo en tramos urbanos y mixtos",
+          "Marcha silenciosa e insonorización superior",
+          "Máximo nivel de equipamiento de confort"
+        ],
+        "desventajas": [
+          "Prestaciones de aceleración moderadas en sobrepasos de ruta",
+          "Tanque de combustible reducido (36L)"
+        ],
+        "datos_tecnicos_resumen": {
+          "motor": "1.8L Híbrido",
+          "potencia": "122 CV",
+          "traccion": "Delantera",
+          "consumo": "4.5L/100km"
+        },
+        "plazas": 5,
+        "traccion": "Delantera",
+        "motor": {
+          "combustible": "Híbrido (Nafta + Eléctrico)",
+          "turbo": false,
+          "hibrido": true,
+          "electrico": false
+        },
+        "transmision": { "tipo": "e-CVT", "marchas": 0 },
+        "prestaciones": { "velocidad_max_kmh": 178 },
+        "capacidad": { "baul_l": 440, "tanque_combustible_l": 36 },
+        "garantia": { "anos": 10, "km": 200000 },
+        "seguridad": {
+          "abs": true,
+          "control_estabilidad": true,
+          "control_traccion": true,
+          "asistente_arranque_pendiente": true,
+          "airbags": 7,
+          "isofix": true,
+          "camara_retroceso": true,
+          "sensores_estacionamiento": true,
+          "control_crucero": true,
+          "alerta_colision": true,
+          "frenado_autonomo": true,
+          "mantenimiento_carril": true
+        },
+        "confort": {
+          "pantalla_pulgadas": 10,
+          "apple_carplay_android_auto": true,
+          "climatizador": "Automático bizona",
+          "acceso_sin_llave": true,
+          "arranque_boton": true,
+          "cargador_inalambrico": true,
+          "techo_panoramico": true
+        },
+        "exterior": { "faros_led": true, "llantas": "Aleación 18\"" }
+      }
+    ]
+  },
+  {
+    "modelo": "Cronos",
+    "marca": "Fiat",
+    "segmento": "Sedán B",
+    "carroceria": "Sedán",
+    "versiones": [
+      {
+        "nombre": "Like 1.3 MT",
+        "imagen_url": "src/assets/vehicles/fiat/cronos/like.png",
+        "descripcion": "Entrada de gama económica orientada al trabajo diario, viajes urbanos o servicios de transporte privado.",
+        "tags": [
+          "Nafta",
+          "Manual",
+          "Trabajo y ciudad",
+          "Económico",
+          "Bajo consumo"
+        ],
+        "ventajas": [
+          "Bajísimo costo de mantenimiento y repuestos económicos",
+          "Baúl gigante de 525 litros",
+          "Bajo consumo de combustible"
+        ],
+        "desventajas": [
+          "Solo 2 airbags frontales",
+          "Sin pantalla táctil ni conectividad inalámbrica"
+        ],
+        "datos_tecnicos_resumen": {
+          "motor": "1.3L Firefly",
+          "potencia": "99 CV",
+          "traccion": "Delantera",
+          "consumo": "6.3L/100km"
+        },
+        "plazas": 5,
+        "traccion": "Delantera",
+        "motor": {
+          "combustible": "Nafta",
+          "turbo": false,
+          "hibrido": false,
+          "electrico": false
+        },
+        "transmision": { "tipo": "Manual", "marchas": 5 },
+        "prestaciones": { "velocidad_max_kmh": 174 },
+        "capacidad": { "baul_l": 525, "tanque_combustible_l": 48 },
+        "garantia": { "anos": 3, "km": 100000 },
+        "seguridad": {
+          "abs": true,
+          "control_estabilidad": true,
+          "control_traccion": true,
+          "asistente_arranque_pendiente": true,
+          "airbags": 2,
+          "isofix": true,
+          "camara_retroceso": false,
+          "sensores_estacionamiento": false,
+          "control_crucero": false,
+          "alerta_colision": false,
+          "frenado_autonomo": false,
+          "mantenimiento_carril": false
+        },
+        "confort": {
+          "pantalla_pulgadas": 0,
+          "apple_carplay_android_auto": false,
+          "climatizador": "Manual",
+          "acceso_sin_llave": false,
+          "arranque_boton": false,
+          "cargador_inalambrico": false,
+          "techo_panoramico": false
+        },
+        "exterior": { "faros_led": false, "llantas": "Aleación 15\"" }
+      },
+      {
+        "nombre": "Precision 1.3 CVT",
+        "imagen_url": "src/assets/vehicles/fiat/cronos/precision.png",
+        "descripcion": "Versión tope de gama con transmisión automática CVT, climatizador automático y pantalla multimedia táctil de 7\".",
+        "tags": [
+          "Nafta",
+          "CVT",
+          "Familia y ciudad",
+          "Económico",
+          "Bajo consumo",
+          "Confort"
+        ],
+        "ventajas": [
+          "Gran comodidad para manejo urbano diario gracias a la caja CVT",
+          "Capacidad de baúl imbatible en el segmento",
+          "Buen nivel de confort interior"
+        ],
+        "desventajas": [
+          "Ausencia de airbags laterales o de cortina",
+          "Potencia del motor ajustada para tramos de montaña con carga"
+        ],
+        "datos_tecnicos_resumen": {
+          "motor": "1.3L Firefly",
+          "potencia": "99 CV",
+          "traccion": "Delantera",
+          "consumo": "6.6L/100km"
+        },
+        "plazas": 5,
+        "traccion": "Delantera",
+        "motor": {
+          "combustible": "Nafta",
+          "turbo": false,
+          "hibrido": false,
+          "electrico": false
+        },
+        "transmision": { "tipo": "CVT", "marchas": 7 },
+        "prestaciones": { "velocidad_max_kmh": 174 },
+        "capacidad": { "baul_l": 525, "tanque_combustible_l": 48 },
+        "garantia": { "anos": 3, "km": 100000 },
+        "seguridad": {
+          "abs": true,
+          "control_estabilidad": true,
+          "control_traccion": true,
+          "asistente_arranque_pendiente": true,
+          "airbags": 2,
+          "isofix": true,
+          "camara_retroceso": true,
+          "sensores_estacionamiento": true,
+          "control_crucero": true,
+          "alerta_colision": false,
+          "frenado_autonomo": false,
+          "mantenimiento_carril": false
+        },
+        "confort": {
+          "pantalla_pulgadas": 7,
+          "apple_carplay_android_auto": true,
+          "climatizador": "Automático",
+          "acceso_sin_llave": true,
+          "arranque_boton": false,
+          "cargador_inalambrico": false,
+          "techo_panoramico": false
+        },
+        "exterior": { "faros_led": true, "llantas": "Aleación 16\"" }
+      }
+    ]
+  },
+  {
+    "modelo": "208",
+    "marca": "Peugeot",
+    "segmento": "Hatchback B",
+    "carroceria": "Hatchback",
+    "versiones": [
+      {
+        "nombre": "Active 1.6 MT",
+        "imagen_url": "src/assets/vehicles/peugeot/208/active.avif",
+        "descripcion": "Versión de entrada con el probado motor 1.6 VTi, pantalla táctil de 10\" e i-Cockpit distintivo de Peugeot.",
+        "tags": [
+          "Nafta",
+          "Manual",
+          "Ciudad y uso diario",
+          "Potencia moderada",
+          "Bajo consumo"
+        ],
+        "ventajas": [
+          "Excelente estética y diseño interior i-Cockpit",
+          "Buen equilibrio entre agilidad y confort urbano",
+          "Pantalla multimedia amplia de serie"
+        ],
+        "desventajas": [
+          "Plazas traseras relativamente ajustadas",
+          "Consumo del motor 1.6 algo superior a los motores turbo modernos"
+        ],
+        "datos_tecnicos_resumen": {
+          "motor": "1.6L VTi",
+          "potencia": "115 CV",
+          "traccion": "Delantera",
+          "consumo": "7.1L/100km"
+        },
+        "plazas": 5,
+        "traccion": "Delantera",
+        "motor": {
+          "combustible": "Nafta",
+          "turbo": false,
+          "hibrido": false,
+          "electrico": false
+        },
+        "transmision": { "tipo": "Manual", "marchas": 5 },
+        "prestaciones": { "velocidad_max_kmh": 190 },
+        "capacidad": { "baul_l": 311, "tanque_combustible_l": 47 },
+        "garantia": { "anos": 3, "km": 100000 },
+        "seguridad": {
+          "abs": true,
+          "control_estabilidad": true,
+          "control_traccion": true,
+          "asistente_arranque_pendiente": true,
+          "airbags": 4,
+          "isofix": true,
+          "camara_retroceso": false,
+          "sensores_estacionamiento": false,
+          "control_crucero": false,
+          "alerta_colision": false,
+          "frenado_autonomo": false,
+          "mantenimiento_carril": false
+        },
+        "confort": {
+          "pantalla_pulgadas": 10,
+          "apple_carplay_android_auto": true,
+          "climatizador": "Manual",
+          "acceso_sin_llave": false,
+          "arranque_boton": false,
+          "cargador_inalambrico": false,
+          "techo_panoramico": false
+        },
+        "exterior": { "faros_led": false, "llantas": "Aleación 15\"" }
+      },
+      {
+        "nombre": "Allure Pack T200 CVT",
+        "imagen_url": "src/assets/vehicles/peugeot/208/allure.avif",
+        "descripcion": "Equipado con el dinámico motor Turbo T200, cargador inalámbrico y un diseño interior más tecnológico.",
+        "tags": [
+          "Nafta",
+          "Turbo",
+          "CVT",
+          "Ciudad y ruta larga",
+          "Potencia moderada",
+          "Bajo consumo"
+        ],
+        "ventajas": [
+          "Gran respuesta de torque desde bajas revoluciones",
+          "Excelente insonorización y andar en ruta",
+          "Conectividad completa con cargador inductivo"
+        ],
+        "desventajas": [
+          "Espacio para piernas en plazas traseras acotado",
+          "Capacidad de baúl justa respecto a competidores sedanes"
+        ],
+        "datos_tecnicos_resumen": {
+          "motor": "1.0L Turbo T200",
+          "potencia": "120 CV",
+          "traccion": "Delantera",
+          "consumo": "6.1L/100km"
+        },
+        "plazas": 5,
+        "traccion": "Delantera",
+        "motor": {
+          "combustible": "Nafta",
+          "turbo": true,
+          "hibrido": false,
+          "electrico": false
+        },
+        "transmision": { "tipo": "CVT", "marchas": 7 },
+        "prestaciones": { "velocidad_max_kmh": 198 },
+        "capacidad": { "baul_l": 311, "tanque_combustible_l": 47 },
+        "garantia": { "anos": 3, "km": 100000 },
+        "seguridad": {
+          "abs": true,
+          "control_estabilidad": true,
+          "control_traccion": true,
+          "asistente_arranque_pendiente": true,
+          "airbags": 6,
+          "isofix": true,
+          "camara_retroceso": true,
+          "sensores_estacionamiento": true,
+          "control_crucero": true,
+          "alerta_colision": false,
+          "frenado_autonomo": false,
+          "mantenimiento_carril": false
+        },
+        "confort": {
+          "pantalla_pulgadas": 10,
+          "apple_carplay_android_auto": true,
+          "climatizador": "Automático",
+          "acceso_sin_llave": true,
+          "arranque_boton": false,
+          "cargador_inalambrico": true,
+          "techo_panoramico": false
+        },
+        "exterior": { "faros_led": false, "llantas": "Aleación 16\"" }
+      },
+      {
+        "nombre": "GT T200 CVT",
+        "imagen_url": "src/assets/vehicles/peugeot/208/gt.avif",
+        "descripcion": "El tope de gama con estética deportiva exclusiva, faros Full LED DRL 'colmillos', tablero 3D y paquete ADAS completo.",
+        "tags": [
+          "Nafta",
+          "Turbo",
+          "CVT",
+          "Deportivo",
+          "ADAS",
+          "Potencia moderada",
+          "Bajo consumo"
+        ],
+        "ventajas": [
+          "Paquete completo de asistencias ADAS",
+          "Faros Full LED de excelente iluminación",
+          "Tablero Digital 3D i-Cockpit"
+        ],
+        "desventajas": [
+          "Perfil de neumático bajo sensible a pozos",
+          "Precio cercano a segmentos superiores"
+        ],
+        "datos_tecnicos_resumen": {
+          "motor": "1.0L Turbo T200",
+          "potencia": "120 CV",
+          "traccion": "Delantera",
+          "consumo": "6.1L/100km"
+        },
+        "plazas": 5,
+        "traccion": "Delantera",
+        "motor": {
+          "combustible": "Nafta",
+          "turbo": true,
+          "hibrido": false,
+          "electrico": false
+        },
+        "transmision": { "tipo": "CVT", "marchas": 7 },
+        "prestaciones": { "velocidad_max_kmh": 198 },
+        "capacidad": { "baul_l": 311, "tanque_combustible_l": 47 },
+        "garantia": { "anos": 3, "km": 100000 },
+        "seguridad": {
+          "abs": true,
+          "control_estabilidad": true,
+          "control_traccion": true,
+          "asistente_arranque_pendiente": true,
+          "airbags": 6,
+          "isofix": true,
+          "camara_retroceso": true,
+          "sensores_estacionamiento": true,
+          "control_crucero": true,
+          "alerta_colision": true,
+          "frenado_autonomo": true,
+          "mantenimiento_carril": true
+        },
+        "confort": {
+          "pantalla_pulgadas": 10,
+          "apple_carplay_android_auto": true,
+          "climatizador": "Automático",
+          "acceso_sin_llave": true,
+          "arranque_boton": true,
+          "cargador_inalambrico": true,
+          "techo_panoramico": true
+        },
+        "exterior": { "faros_led": true, "llantas": "Aleación 17\"" }
+      }
+    ]
+  },
+  {
+    "modelo": "Territory",
+    "marca": "Ford",
+    "segmento": "SUV C",
+    "carroceria": "SUV",
+    "versiones": [
+      {
+        "nombre": "Titanium 1.8 EcoBoost AT",
+        "imagen_url": "src/assets/vehicles/ford/territory/titanium.avif",
+        "descripcion": "SUV mediana caracterizada por su altísimo equipamiento tecnológico, doble pantalla unificada de 12\" y máxima amplitud trasera.",
+        "tags": [
+          "Nafta",
+          "Turbo",
+          "Automática",
+          "Familia y viajes",
+          "ADAS",
+          "Alta potencia",
+          "Consumo moderado"
+        ],
+        "ventajas": [
+          "Espacio interior líder absoluto en plazas traseras",
+          "Techo panorámico de gran apertura",
+          "Caja automática de 7 marchas muy fluida"
+        ],
+        "desventajas": [
+          "Sin opción de tracción en las cuatro ruedas",
+          "Consumo en ciudad moderado a elevado"
+        ],
+        "datos_tecnicos_resumen": {
+          "motor": "1.8L EcoBoost",
+          "potencia": "185 CV",
+          "traccion": "Delantera",
+          "consumo": "8.8L/100km"
+        },
+        "plazas": 5,
+        "traccion": "Delantera",
+        "motor": {
+          "combustible": "Nafta",
+          "turbo": true,
+          "hibrido": false,
+          "electrico": false
+        },
+        "transmision": { "tipo": "Automática Doble Embrague", "marchas": 7 },
+        "prestaciones": { "velocidad_max_kmh": 180 },
+        "capacidad": { "baul_l": 448, "tanque_combustible_l": 60 },
+        "garantia": { "anos": 5, "km": 150000 },
+        "seguridad": {
+          "abs": true,
+          "control_estabilidad": true,
+          "control_traccion": true,
+          "asistente_arranque_pendiente": true,
+          "airbags": 6,
+          "isofix": true,
+          "camara_retroceso": true,
+          "sensores_estacionamiento": true,
+          "control_crucero": true,
+          "alerta_colision": true,
+          "frenado_autonomo": true,
+          "mantenimiento_carril": true
+        },
+        "confort": {
+          "pantalla_pulgadas": 12,
+          "apple_carplay_android_auto": true,
+          "climatizador": "Automático bizona",
+          "acceso_sin_llave": true,
+          "arranque_boton": true,
+          "cargador_inalambrico": true,
+          "techo_panoramico": true
+        },
+        "exterior": { "faros_led": true, "llantas": "Aleación 19\"" }
+      },
+      {
+        "nombre": "Trend Hybrid 1.5 GTDI DHT",
+        "imagen_url": "src/assets/vehicles/ford/territory/trend-hybrid.webp",
+        "descripcion": "Variante híbrida de alta potencia que combina motor turbo con propulsión eléctrica para optimizar consumos.",
+        "tags": [
+          "Híbrido",
+          "Turbo",
+          "Familia y viajes",
+          "Alta potencia",
+          "Bajo consumo"
+        ],
+        "ventajas": [
+          "Elevada potencia combinada",
+          "Excelente aceleración y empuje inmediato",
+          "Consumo contenido en ciclos urbanos"
+        ],
+        "desventajas": [
+          "Llantas de perfil más conservador en la versión Trend",
+          "Peso del vehículo incrementado por el sistema de baterías"
+        ],
+        "datos_tecnicos_resumen": {
+          "motor": "1.5L Turbo Híbrido",
+          "potencia": "245 CV",
+          "traccion": "Delantera",
+          "consumo": "5.4L/100km"
+        },
+        "plazas": 5,
+        "traccion": "Delantera",
+        "motor": {
+          "combustible": "Híbrido (Nafta + Eléctrico)",
+          "turbo": true,
+          "hibrido": true,
+          "electrico": false
+        },
+        "transmision": { "tipo": "Automática híbrida DHT", "marchas": 0 },
+        "prestaciones": { "velocidad_max_kmh": 180 },
+        "capacidad": { "baul_l": 448, "tanque_combustible_l": 60 },
+        "garantia": { "anos": 5, "km": 150000 },
+        "seguridad": {
+          "abs": true,
+          "control_estabilidad": true,
+          "control_traccion": true,
+          "asistente_arranque_pendiente": true,
+          "airbags": 6,
+          "isofix": true,
+          "camara_retroceso": true,
+          "sensores_estacionamiento": true,
+          "control_crucero": true,
+          "alerta_colision": true,
+          "frenado_autonomo": true,
+          "mantenimiento_carril": true
+        },
+        "confort": {
+          "pantalla_pulgadas": 12,
+          "apple_carplay_android_auto": true,
+          "climatizador": "Automático bizona",
+          "acceso_sin_llave": true,
+          "arranque_boton": true,
+          "cargador_inalambrico": true,
+          "techo_panoramico": true
+        },
+        "exterior": { "faros_led": true, "llantas": "Aleación 18\"" }
+      }
+    ]
+  },
+  {
+    "modelo": "Ranger",
+    "marca": "Ford",
+    "segmento": "Pick-up mediana",
+    "carroceria": "Pick-up",
+    "versiones": [
+      {
+        "nombre": "XL 2.0 Turbo Diesel MT",
+        "imagen_url": "src/assets/vehicles/ford/ranger/xl.avif",
+        "descripcion": "Pickup robusta creada para el trabajo exigente de campo o minería, equipada con cuadro digital y pantalla de 10\" de serie.",
+        "tags": [
+          "Diésel",
+          "Manual",
+          "4x4",
+          "Trabajo y flotas",
+          "Potencia moderada",
+          "Consumo moderado"
+        ],
+        "ventajas": [
+          "Pantalla digital SYNC 4 de serie en entrada de gama",
+          "Chasis reinforced de nueva generación",
+          "Excelente capacidad de vadeo (800 mm)"
+        ],
+        "desventajas": [
+          "Llantas de chapa de 16 pulgadas",
+          "Faltan sensores de estacionamiento"
+        ],
+        "datos_tecnicos_resumen": {
+          "motor": "2.0L Turbo Diesel",
+          "potencia": "170 CV",
+          "traccion": "4x4",
+          "consumo": "8.2L/100km"
+        },
+        "plazas": 5,
+        "traccion": "4x4",
+        "motor": {
+          "combustible": "Diesel",
+          "turbo": true,
+          "hibrido": false,
+          "electrico": false
+        },
+        "transmision": { "tipo": "Manual", "marchas": 6 },
+        "prestaciones": { "velocidad_max_kmh": 175 },
+        "capacidad": { "baul_l": 1000, "tanque_combustible_l": 80 },
+        "garantia": { "anos": 5, "km": 150000 },
+        "seguridad": {
+          "abs": true,
+          "control_estabilidad": true,
+          "control_traccion": true,
+          "asistente_arranque_pendiente": true,
+          "airbags": 7,
+          "isofix": false,
+          "camara_retroceso": true,
+          "sensores_estacionamiento": false,
+          "control_crucero": false,
+          "alerta_colision": false,
+          "frenado_autonomo": false,
+          "mantenimiento_carril": false
+        },
+        "confort": {
+          "pantalla_pulgadas": 10,
+          "apple_carplay_android_auto": true,
+          "climatizador": "Manual",
+          "acceso_sin_llave": false,
+          "arranque_boton": false,
+          "cargador_inalambrico": false,
+          "techo_panoramico": false
+        },
+        "exterior": { "faros_led": false, "llantas": "Acero 16\"" }
+      },
+      {
+        "nombre": "XLS 2.0 Bi-Turbo AT",
+        "imagen_url": "src/assets/vehicles/ford/ranger/xls.avif",
+        "descripcion": "Equipada con motor Bi-Turbo y caja automática de 10 marchas, entregando equilibrio ideal entre trabajo y confort.",
+        "tags": [
+          "Diésel",
+          "Bi-Turbo",
+          "Automática",
+          "4x4",
+          "Uso mixto y trabajo",
+          "Alta potencia",
+          "Consumo moderado"
+        ],
+        "ventajas": [
+          "Transmisión automática de 10 marchas con escalonamiento óptimo",
+          "Frenado autónomo de emergencia y mantenimiento de carril",
+          "Poderoso motor Bi-Turbo"
+        ],
+        "desventajas": [
+          "Pantalla de 10\" en lugar de la versión de 12\"",
+          "Tapizados de tela estándar"
+        ],
+        "datos_tecnicos_resumen": {
+          "motor": "2.0L Bi-Turbo Diesel",
+          "potencia": "210 CV",
+          "traccion": "4x4",
+          "consumo": "8.7L/100km"
+        },
+        "plazas": 5,
+        "traccion": "4x4",
+        "motor": {
+          "combustible": "Diesel",
+          "turbo": true,
+          "hibrido": false,
+          "electrico": false
+        },
+        "transmision": { "tipo": "Automática Secuencial", "marchas": 10 },
+        "prestaciones": { "velocidad_max_kmh": 180 },
+        "capacidad": { "baul_l": 1000, "tanque_combustible_l": 80 },
+        "garantia": { "anos": 5, "km": 150000 },
+        "seguridad": {
+          "abs": true,
+          "control_estabilidad": true,
+          "control_traccion": true,
+          "asistente_arranque_pendiente": true,
+          "airbags": 7,
+          "isofix": false,
+          "camara_retroceso": true,
+          "sensores_estacionamiento": true,
+          "control_crucero": true,
+          "alerta_colision": true,
+          "frenado_autonomo": true,
+          "mantenimiento_carril": true
+        },
+        "confort": {
+          "pantalla_pulgadas": 12,
+          "apple_carplay_android_auto": true,
+          "climatizador": "Automático",
+          "acceso_sin_llave": true,
+          "arranque_boton": true,
+          "cargador_inalambrico": false,
+          "techo_panoramico": false
+        },
+        "exterior": { "faros_led": true, "llantas": "Aleación 17\"" }
+      },
+      {
+        "nombre": "Limited+ V6 3.0 AT",
+        "imagen_url": "src/assets/vehicles/ford/ranger/limited-plus.avif",
+        "descripcion": "El referente absoluto del segmento con motor V6 Turbo Diésel, tracción 4WD inteligente y máximo nivel de tecnología.",
+        "tags": [
+          "Diésel",
+          "V6",
+          "Automática",
+          "4x4",
+          "Uso mixto y viajes premium",
+          "ADAS",
+          "Alta potencia",
+          "Consumo moderado"
+        ],
+        "ventajas": [
+          "Motor V6 3.0L con torque supremo",
+          "Tracción 4WD con reparto automático continuo",
+          "E-Shifter y paquete completo Ford Co-Pilot360"
+        ],
+        "desventajas": [
+          "Llantas de 20\" requieren mayor cuidado en off-road severo",
+          "Precio elevado"
+        ],
+        "datos_tecnicos_resumen": {
+          "motor": "3.0L V6 Turbo Diesel",
+          "potencia": "250 CV",
+          "traccion": "4WD Inteligente",
+          "consumo": "9.6L/100km"
+        },
+        "plazas": 5,
+        "traccion": "4x4",
+        "motor": {
+          "combustible": "Diesel",
+          "turbo": true,
+          "hibrido": false,
+          "electrico": false
+        },
+        "transmision": { "tipo": "Automática Secuencial", "marchas": 10 },
+        "prestaciones": { "velocidad_max_kmh": 180 },
+        "capacidad": { "baul_l": 1000, "tanque_combustible_l": 80 },
+        "garantia": { "anos": 5, "km": 150000 },
+        "seguridad": {
+          "abs": true,
+          "control_estabilidad": true,
+          "control_traccion": true,
+          "asistente_arranque_pendiente": true,
+          "airbags": 7,
+          "isofix": false,
+          "camara_retroceso": true,
+          "sensores_estacionamiento": true,
+          "control_crucero": true,
+          "alerta_colision": true,
+          "frenado_autonomo": true,
+          "mantenimiento_carril": true
+        },
+        "confort": {
+          "pantalla_pulgadas": 12,
+          "apple_carplay_android_auto": true,
+          "climatizador": "Bizona",
+          "acceso_sin_llave": true,
+          "arranque_boton": true,
+          "cargador_inalambrico": true,
+          "techo_panoramico": false
+        },
+        "exterior": { "faros_led": true, "llantas": "Aleación 20\"" }
+      }
+    ]
+  },
+  {
+    "modelo": "Tera",
+    "marca": "Volkswagen",
+    "segmento": "SUV B",
+    "carroceria": "SUV",
+    "versiones": [
+      {
+        "nombre": "Trend 1.6 MSI MT",
+        "imagen_url": "src/assets/vehicles/volkswagen/tera/trend.webp",
+        "descripcion": "Crossover de entrada enfocado en el manejo urbano, con motor confiable de 1.6L y excelente espacio útil.",
+        "tags": [
+          "Nafta",
+          "Manual",
+          "Ciudad y uso diario",
+          "Económico",
+          "Bajo consumo"
+        ],
+        "ventajas": [
+          "Mecánica 1.6 MSI muy simple y confiable",
+          "Caja manual de acople preciso",
+          "Baúl amplio de 407 litros"
+        ],
+        "desventajas": [
+          "Aceleración progresiva sin la respuesta del motor turbo",
+          "Faros halógenos convencionales"
+        ],
+        "datos_tecnicos_resumen": {
+          "motor": "1.6L MSI",
+          "potencia": "110 CV",
+          "traccion": "Delantera",
+          "consumo": "6.8L/100km"
+        },
+        "plazas": 5,
+        "traccion": "Delantera",
+        "motor": {
+          "combustible": "Nafta",
+          "turbo": false,
+          "hibrido": false,
+          "electrico": false
+        },
+        "transmision": { "tipo": "Manual", "marchas": 5 },
+        "prestaciones": { "velocidad_max_kmh": 184 },
+        "capacidad": { "baul_l": 407, "tanque_combustible_l": 52 },
+        "garantia": { "anos": 3, "km": 100000 },
+        "seguridad": {
+          "abs": true,
+          "control_estabilidad": true,
+          "control_traccion": true,
+          "asistente_arranque_pendiente": true,
+          "airbags": 6,
+          "isofix": true,
+          "camara_retroceso": true,
+          "sensores_estacionamiento": true,
+          "control_crucero": true,
+          "alerta_colision": false,
+          "frenado_autonomo": false,
+          "mantenimiento_carril": false
+        },
+        "confort": {
+          "pantalla_pulgadas": 10,
+          "apple_carplay_android_auto": true,
+          "climatizador": "Manual",
+          "acceso_sin_llave": false,
+          "arranque_boton": false,
+          "cargador_inalambrico": false,
+          "techo_panoramico": false
+        },
+        "exterior": { "faros_led": true, "llantas": "Acero 16\"" }
+      },
+      {
+        "nombre": "High 170 TSI AT",
+        "imagen_url": "src/assets/vehicles/volkswagen/tera/high.webp",
+        "descripcion": "Versión equipada con motor turbo 170 TSI, caja automática Tiptronic y asistentes activos a la conducción.",
+        "tags": [
+          "Nafta",
+          "Turbo",
+          "Automática",
+          "Ciudad y viajes",
+          "ADAS",
+          "Económico",
+          "Bajo consumo"
+        ],
+        "ventajas": [
+          "Excelente torque desde bajas vueltas gracias al turbo",
+          "Controles y climatizador digital capacitivo",
+          "Asistentes ADAS de frenado autónomo"
+        ],
+        "desventajas": [
+          "Presencia de plásticos duros en algunos paneles de puertas",
+          "Tanque de combustible estándar"
+        ],
+        "datos_tecnicos_resumen": {
+          "motor": "1.0L Turbo 170 TSI",
+          "potencia": "101 CV",
+          "traccion": "Delantera",
+          "consumo": "5.9L/100km"
+        },
+        "plazas": 5,
+        "traccion": "Delantera",
+        "motor": {
+          "combustible": "Nafta",
+          "turbo": true,
+          "hibrido": false,
+          "electrico": false
+        },
+        "transmision": { "tipo": "Automática Tiptronic", "marchas": 6 },
+        "prestaciones": { "velocidad_max_kmh": 184 },
+        "capacidad": { "baul_l": 407, "tanque_combustible_l": 52 },
+        "garantia": { "anos": 3, "km": 100000 },
+        "seguridad": {
+          "abs": true,
+          "control_estabilidad": true,
+          "control_traccion": true,
+          "asistente_arranque_pendiente": true,
+          "airbags": 6,
+          "isofix": true,
+          "camara_retroceso": true,
+          "sensores_estacionamiento": true,
+          "control_crucero": true,
+          "alerta_colision": true,
+          "frenado_autonomo": true,
+          "mantenimiento_carril": true
+        },
+        "confort": {
+          "pantalla_pulgadas": 10,
+          "apple_carplay_android_auto": true,
+          "climatizador": "Digital",
+          "acceso_sin_llave": true,
+          "arranque_boton": true,
+          "cargador_inalambrico": true,
+          "techo_panoramico": false
+        },
+        "exterior": { "faros_led": true, "llantas": "Aleación 17\"" }
+      }
+    ]
+  },
+  {
+    "modelo": "Amarok",
+    "marca": "Volkswagen",
+    "segmento": "Pick-up mediana",
+    "carroceria": "Pick-up",
+    "versiones": [
+      {
+        "nombre": "Trendline 2.0 TDI MT",
+        "imagen_url": "src/assets/vehicles/volkswagen/amarok/trendline.webp",
+        "descripcion": "Versión orientada al trabajo de campo y uso rudo, impulsada por el motor 2.0 TDI.",
+        "tags": [
+          "Diésel",
+          "Manual",
+          "4x4",
+          "Trabajo y flotas",
+          "Potencia moderada",
+          "Consumo moderado"
+        ],
+        "ventajas": [
+          "Excelente espacio habitáculo de hombro a hombro",
+          "Tracción 4x4 conectable con reductora",
+          "Costo por kilómetro muy económico"
+        ],
+        "desventajas": [
+          "Pantalla multimedia más pequeña respecto a tope de gama",
+          "Faros delanteros halógenos"
+        ],
+        "datos_tecnicos_resumen": {
+          "motor": "2.0L Turbo Diesel",
+          "potencia": "140 CV",
+          "traccion": "4x4 Conectable",
+          "consumo": "7.9L/100km"
+        },
+        "plazas": 5,
+        "traccion": "Trasera / 4x4",
+        "motor": {
+          "combustible": "Diesel",
+          "turbo": true,
+          "hibrido": false,
+          "electrico": false
+        },
+        "transmision": { "tipo": "Manual", "marchas": 6 },
+        "prestaciones": { "velocidad_max_kmh": 168 },
+        "capacidad": { "baul_l": 1000, "tanque_combustible_l": 80 },
+        "garantia": { "anos": 5, "km": 150000 },
+        "seguridad": {
+          "abs": true,
+          "control_estabilidad": true,
+          "control_traccion": true,
+          "asistente_arranque_pendiente": true,
+          "airbags": 6,
+          "isofix": false,
+          "camara_retroceso": false,
+          "sensores_estacionamiento": true,
+          "control_crucero": true,
+          "alerta_colision": false,
+          "frenado_autonomo": false,
+          "mantenimiento_carril": false
+        },
+        "confort": {
+          "pantalla_pulgadas": 9,
+          "apple_carplay_android_auto": true,
+          "climatizador": "Manual",
+          "acceso_sin_llave": false,
+          "arranque_boton": false,
+          "cargador_inalambrico": false,
+          "techo_panoramico": false
+        },
+        "exterior": { "faros_led": false, "llantas": "Aleación 16\"" }
+      },
+      {
+        "nombre": "Comfortline 2.0 Bi-TDI AT",
+        "imagen_url": "src/assets/vehicles/volkswagen/amarok/comfortline.webp",
+        "descripcion": "Con motor 2.0 Bi-Turbo Diesel y la destacada caja automática ZF de 8 velocidades.",
+        "tags": [
+          "Diésel",
+          "Bi-Turbo",
+          "Automática",
+          "4x2",
+          "Ruta larga y trabajo",
+          "Potencia moderada",
+          "Consumo moderado"
+        ],
+        "ventajas": [
+          "Caja ZF de 8 velocidades de excelente respuesta",
+          "Andar en ruta muy suave similar a un sedán",
+          "Buena capacidad de carga"
+        ],
+        "desventajas": [
+          "Diseño de panel interior clásico sin cambios radicales",
+          "Sin asistentes avanzados a la conducción"
+        ],
+        "datos_tecnicos_resumen": {
+          "motor": "2.0L Bi-Turbo Diesel",
+          "potencia": "180 CV",
+          "traccion": "4x2",
+          "consumo": "8.3L/100km"
+        },
+        "plazas": 5,
+        "traccion": "4x2 / 4x4",
+        "motor": {
+          "combustible": "Diesel",
+          "turbo": true,
+          "hibrido": false,
+          "electrico": false
+        },
+        "transmision": { "tipo": "Automática ZF con convertidor de par", "marchas": 8 },
+        "prestaciones": { "velocidad_max_kmh": 179 },
+        "capacidad": { "baul_l": 1000, "tanque_combustible_l": 80 },
+        "garantia": { "anos": 5, "km": 150000 },
+        "seguridad": {
+          "abs": true,
+          "control_estabilidad": true,
+          "control_traccion": true,
+          "asistente_arranque_pendiente": true,
+          "airbags": 6,
+          "isofix": false,
+          "camara_retroceso": true,
+          "sensores_estacionamiento": true,
+          "control_crucero": true,
+          "alerta_colision": false,
+          "frenado_autonomo": false,
+          "mantenimiento_carril": false
+        },
+        "confort": {
+          "pantalla_pulgadas": 9,
+          "apple_carplay_android_auto": true,
+          "climatizador": "Automático",
+          "acceso_sin_llave": true,
+          "arranque_boton": false,
+          "cargador_inalambrico": false,
+          "techo_panoramico": false
+        },
+        "exterior": { "faros_led": true, "llantas": "Aleación 17\"" }
+      }
+    ]
+  }
+]

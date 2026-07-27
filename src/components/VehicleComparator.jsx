@@ -1,12 +1,7 @@
-import { useState } from 'react';
-
-const tagStyles = {
-  Ciudad: { color: '#0c447c', bg: '#e6f1fb' },
-  'Off-road': { color: '#27500a', bg: '#eaf3de' },
-  Familia: { color: '#3c3489', bg: '#eeedfe' },
-  Ruta: { color: '#633806', bg: '#faeeda' },
-  Trabajo: { color: '#444441', bg: '#f1efe8' },
-};
+import { useState, Fragment } from 'react';
+import { getTagStyle } from './tagStyles';
+import { VehicleImage } from './VehicleImage';
+import { SPEC_SECTIONS, getSpecValue } from '../data/specSections';
 
 // Extrae el valor numérico del consumo para comparar (ej: "8.5L/100km" → 8.5)
 function parseConsumo(datosTecnicos) {
@@ -16,7 +11,7 @@ function parseConsumo(datosTecnicos) {
   return match ? parseFloat(match[0]) : null;
 }
 
-// Extrae potencia numérica (ej: "163 HP" → 163)
+// Extrae potencia numérica (ej: "150 CV" → 150)
 function parsePotencia(datosTecnicos) {
   const entry = datosTecnicos.find((d) => d.toLowerCase().includes('potencia'));
   if (!entry) return null;
@@ -28,10 +23,13 @@ function parsePotencia(datosTecnicos) {
 function VehicleSearchModal({ vehicles, excludeId, onSelect, onClose }) {
   const [query, setQuery] = useState('');
 
+  const q = query.toLowerCase();
   const results = vehicles.filter(
     (v) =>
       v.id !== excludeId &&
-      v.name.toLowerCase().includes(query.toLowerCase())
+      (v.name.toLowerCase().includes(q) ||
+        v.nombre.toLowerCase().includes(q) ||
+        v.category.toLowerCase().includes(q))
   );
 
   return (
@@ -64,7 +62,7 @@ function VehicleSearchModal({ vehicles, excludeId, onSelect, onClose }) {
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Ej: Toyota, Hilux, Compacto..."
+            placeholder="Ej: Toyota, Hilux, SUV..."
             className="w-full px-3 py-2.5 text-[13px] border border-[#e2e2e2] rounded-[8px] outline-none focus:border-[#cc0000] transition-colors bg-[#fafafa] focus:bg-white placeholder:text-[#ccc]"
           />
         </div>
@@ -82,25 +80,17 @@ function VehicleSearchModal({ vehicles, excludeId, onSelect, onClose }) {
                 onClick={() => onSelect(v)}
                 className="w-full flex items-center gap-3 px-4 py-3 hover:bg-[#fff5f5] transition-colors text-left"
               >
-                {/* Mini icono auto */}
-                <div className="w-10 h-10 bg-[#f5f5f5] rounded-[8px] flex items-center justify-center flex-shrink-0">
-                  <svg width="28" height="18" viewBox="0 0 100 60" fill="none">
-                    <path
-                      d="M15 35h70M20 35c0-2.761-2.239-5-5-5s-5 2.239-5 5 2.239 5 5 5 5-2.239 5-5zm60 0c0-2.761-2.239-5-5-5s-5 2.239-5 5 2.239 5 5 5 5-2.239 5-5zM25 35V25l10-5h20l15 10v5M30 20h25"
-                      stroke="#ccc"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
+                {/* Miniatura del vehículo */}
+                <div className="w-10 h-10 bg-[#f5f5f5] rounded-[8px] overflow-hidden flex-shrink-0">
+                  <VehicleImage src={v.imagenUrl} alt={v.name} iconSize={{ width: 28, height: 18 }} />
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="text-[13px] font-semibold text-[#1a1a1a] truncate">{v.name}</p>
-                  <p className="text-[11px] text-[#9a9a9a] font-mono">{v.subtitle}</p>
+                  <p className="text-[11px] text-[#9a9a9a] truncate">{v.nombre}</p>
                 </div>
                 <div className="flex flex-wrap gap-1 justify-end">
-                  {v.tags.slice(0, 2).map((tag) => {
-                    const s = tagStyles[tag] || { color: '#444', bg: '#f1efe8' };
+                  {v.displayTags.slice(0, 2).map((tag) => {
+                    const s = getTagStyle(tag);
                     return (
                       <span
                         key={tag}
@@ -146,9 +136,18 @@ function CompareRow({ label, valueA, valueB, highlight, winA, winB }) {
   );
 }
 
+function formatSpecValue(field, specs) {
+  const value = getSpecValue(specs, field.path);
+  if (field.type === 'bool') return value ? 'Sí' : 'No';
+  if (value === undefined || value === null || value === '') return '—';
+  if (field.type === 'number') return `${value}${field.unit}`;
+  return value;
+}
+
 // Tabla principal de comparación
 export function VehicleComparator({ vehicleA, vehicleB, onClose, vehicles, onChangeB, openSearchImmediately }) {
   const [showSearch, setShowSearch] = useState(openSearchImmediately ?? false);
+  const [showFullSpecs, setShowFullSpecs] = useState(false);
 
   // Si no hay vehículo B elegido aún, solo mostramos el modal
   if (!vehicleB) {
@@ -166,10 +165,6 @@ export function VehicleComparator({ vehicleA, vehicleB, onClose, vehicles, onCha
   const consumoB = parseConsumo(vehicleB.datosTecnicos);
   const potenciaA = parsePotencia(vehicleA.datosTecnicos);
   const potenciaB = parsePotencia(vehicleB.datosTecnicos);
-
-  // Ganador por adecuación
-  const fitWinA = vehicleA.fit > vehicleB.fit;
-  const fitWinB = vehicleB.fit > vehicleA.fit;
 
   // Menor consumo gana
   const consumoWinA = consumoA !== null && consumoB !== null && consumoA < consumoB;
@@ -218,10 +213,10 @@ export function VehicleComparator({ vehicleA, vehicleB, onClose, vehicles, onCha
                 <span className="text-[11px] text-[#9a9a9a] uppercase tracking-wider">Vehículo base</span>
               </div>
               <p className="text-[15px] font-semibold text-[#1a1a1a]">{vehicleA.name}</p>
-              <p className="text-[11px] text-[#9a9a9a] font-mono mb-2">{vehicleA.subtitle}</p>
+              <p className="text-[11px] text-[#9a9a9a] mb-2">{vehicleA.nombre}</p>
               <div className="flex flex-wrap gap-1">
-                {vehicleA.tags.map((tag) => {
-                  const s = tagStyles[tag] || { color: '#444', bg: '#f1efe8' };
+                {vehicleA.displayTags.map((tag) => {
+                  const s = getTagStyle(tag);
                   return (
                     <span key={tag} className="px-2 py-0.5 text-[10px] rounded-full" style={{ color: s.color, backgroundColor: s.bg }}>
                       {tag}
@@ -246,10 +241,10 @@ export function VehicleComparator({ vehicleA, vehicleB, onClose, vehicles, onCha
                 </button>
               </div>
               <p className="text-[15px] font-semibold text-[#1a1a1a]">{vehicleB.name}</p>
-              <p className="text-[11px] text-[#9a9a9a] font-mono mb-2">{vehicleB.subtitle}</p>
+              <p className="text-[11px] text-[#9a9a9a] mb-2">{vehicleB.nombre}</p>
               <div className="flex flex-wrap gap-1">
-                {vehicleB.tags.map((tag) => {
-                  const s = tagStyles[tag] || { color: '#444', bg: '#f1efe8' };
+                {vehicleB.displayTags.map((tag) => {
+                  const s = getTagStyle(tag);
                   return (
                     <span key={tag} className="px-2 py-0.5 text-[10px] rounded-full" style={{ color: s.color, backgroundColor: s.bg }}>
                       {tag}
@@ -261,7 +256,7 @@ export function VehicleComparator({ vehicleA, vehicleB, onClose, vehicles, onCha
           </div>
         </div>
 
-        {/* Tabla de comparación */}
+        {/* Tabla de comparación (lo esencial, sin saturar) */}
         <div className="border border-[#e2e2e2] rounded-b-[16px] overflow-hidden">
           <table className="w-full border-collapse">
             <tbody className="divide-y divide-[#e2e2e2]">
@@ -276,39 +271,16 @@ export function VehicleComparator({ vehicleA, vehicleB, onClose, vehicles, onCha
               </tr>
 
               <CompareRow
-                label="Categoría"
-                valueA={vehicleA.category}
-                valueB={vehicleB.category}
+                label="Segmento"
+                valueA={vehicleA.segmento}
+                valueB={vehicleB.segmento}
                 highlight
               />
               <CompareRow
-                label="Adecuación"
-                valueA={`${vehicleA.fit}%`}
-                valueB={`${vehicleB.fit}%`}
-                winA={fitWinA}
-                winB={fitWinB}
+                label="Categoría"
+                valueA={vehicleA.category}
+                valueB={vehicleB.category}
               />
-              <tr className="bg-[#fafafa]">
-                <td className="px-4 py-3 text-[12px] text-[#9a9a9a] uppercase tracking-wider font-medium border-r border-[#e2e2e2]">
-                  Barra de fit
-                </td>
-                <td className="px-4 py-4 border-r border-[#e2e2e2]">
-                  <div className="flex items-center gap-2">
-                    <div className="flex-1 h-1.5 bg-[#e2e2e2] rounded-full overflow-hidden">
-                      <div className="h-full bg-[#cc0000] rounded-full" style={{ width: `${vehicleA.fit}%` }} />
-                    </div>
-                    <span className="text-[11px] font-mono text-[#1a1a1a]">{vehicleA.fit}%</span>
-                  </div>
-                </td>
-                <td className="px-4 py-4">
-                  <div className="flex items-center gap-2">
-                    <div className="flex-1 h-1.5 bg-[#e2e2e2] rounded-full overflow-hidden">
-                      <div className="h-full bg-[#cc0000] rounded-full" style={{ width: `${vehicleB.fit}%` }} />
-                    </div>
-                    <span className="text-[11px] font-mono text-[#1a1a1a]">{vehicleB.fit}%</span>
-                  </div>
-                </td>
-              </tr>
 
               {/* ── Sección: Datos técnicos ───────────────────── */}
               <tr className="bg-[#1a1a1a]">
@@ -326,7 +298,6 @@ export function VehicleComparator({ vehicleA, vehicleB, onClose, vehicles, onCha
 
                 const isConsumo = label.toLowerCase() === 'consumo';
                 const isPotencia = label.toLowerCase() === 'potencia';
-                const isCarga = label.toLowerCase().includes('carga') || label.toLowerCase().includes('peso');
 
                 return (
                   <CompareRow
@@ -335,14 +306,8 @@ export function VehicleComparator({ vehicleA, vehicleB, onClose, vehicles, onCha
                     valueA={datoA.includes(':') ? datoA.split(':').slice(1).join(':').trim() : datoA}
                     valueB={datoB.includes(':') ? datoB.split(':').slice(1).join(':').trim() : datoB}
                     highlight={i % 2 === 0}
-                    winA={
-                      (isConsumo && consumoWinA) ||
-                      (isPotencia && potWinA)
-                    }
-                    winB={
-                      (isConsumo && consumoWinB) ||
-                      (isPotencia && potWinB)
-                    }
+                    winA={(isConsumo && consumoWinA) || (isPotencia && potWinA)}
+                    winB={(isConsumo && consumoWinB) || (isPotencia && potWinB)}
                   />
                 );
               })}
@@ -422,12 +387,66 @@ export function VehicleComparator({ vehicleA, vehicleB, onClose, vehicles, onCha
         </div>
 
         {/* Leyenda ganadores */}
-        <div className="mt-3 flex items-center gap-2 px-1">
-          <span className="w-3 h-3 rounded-sm bg-[#f0f9e8] border border-[#b8dda0] inline-block" />
-          <span className="text-[11px] text-[#9a9a9a]">
-            Verde = mejor valor en esa categoría
-          </span>
+        <div className="mt-3 flex items-center justify-between px-1">
+          <div className="flex items-center gap-2">
+            <span className="w-3 h-3 rounded-sm bg-[#f0f9e8] border border-[#b8dda0] inline-block" />
+            <span className="text-[11px] text-[#9a9a9a]">
+              Verde = mejor valor en esa categoría
+            </span>
+          </div>
+          <button
+            onClick={() => setShowFullSpecs((v) => !v)}
+            className="text-[12px] text-[#cc0000] font-medium hover:underline flex items-center gap-1"
+          >
+            {showFullSpecs ? 'Ocultar especificaciones completas' : 'Ver especificaciones completas'}
+            <span className={`text-[10px] transition-transform ${showFullSpecs ? 'rotate-180' : ''}`}>▾</span>
+          </button>
         </div>
+
+        {/* Comparación avanzada: colapsada por defecto para no abrumar */}
+        {showFullSpecs && (
+          <div className="mt-3 border border-[#e2e2e2] rounded-[16px] overflow-hidden">
+            <table className="w-full border-collapse">
+              <tbody className="divide-y divide-[#e2e2e2]">
+                {SPEC_SECTIONS.map((section) => (
+                  <Fragment key={section.id}>
+                    <tr className="bg-[#1a1a1a]">
+                      <td colSpan={3} className="px-4 py-2">
+                        <span className="text-[10px] text-[#888] uppercase tracking-[2px] font-medium">
+                          {section.title}
+                        </span>
+                      </td>
+                    </tr>
+                    {section.fields.map((field, i) => {
+                      const valueA = getSpecValue(vehicleA.specs, field.path);
+                      const valueB = getSpecValue(vehicleB.specs, field.path);
+                      let winA = false;
+                      let winB = false;
+                      if (field.type === 'bool') {
+                        winA = !!valueA && !valueB;
+                        winB = !!valueB && !valueA;
+                      } else if (field.type === 'number') {
+                        winA = typeof valueA === 'number' && typeof valueB === 'number' && valueA > valueB;
+                        winB = typeof valueA === 'number' && typeof valueB === 'number' && valueB > valueA;
+                      }
+                      return (
+                        <CompareRow
+                          key={field.path}
+                          label={field.label}
+                          valueA={formatSpecValue(field, vehicleA.specs)}
+                          valueB={formatSpecValue(field, vehicleB.specs)}
+                          highlight={i % 2 === 0}
+                          winA={winA}
+                          winB={winB}
+                        />
+                      );
+                    })}
+                  </Fragment>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
       </div>
     </>
   );
