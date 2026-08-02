@@ -11,12 +11,14 @@ import { Contacto } from './components/Contacto';
 import { GuiaDeCompra } from './components/GuiaDeCompra';
 import { VehicleComparator } from './components/VehicleComparator';
 import { ComparadorPage } from './components/ComparadorPage';
+import { AsesorIA } from './components/AsesorIA';
 import { vehicles, categories, marcas } from './data/vehicles.js';
 
 // Mapeo: link del Header → nombre de vista
 const HEADER_VIEW_MAP = {
   'Vehículos': 'vehicles',
   'Comparador': 'comparador',
+  'Asesor IA': 'asesor',
   'Nosotros': 'nosotros',
   'Contacto': 'contacto',
 };
@@ -126,6 +128,18 @@ export default function App() {
         </div>
       );
     }
+  }
+
+  // ── Vista: Asesor IA ───────────────────────────────────────────────────────
+  if (currentView === 'asesor') {
+    return (
+      <div className="min-h-screen bg-[#f0f0f0]">
+        <Header activeNav="Asesor IA" onNavChange={handleNavChange} />
+        <div className="max-w-[1100px] mx-auto py-6 px-5">
+          <AsesorIA onBack={() => setCurrentView('vehicles')} />
+        </div>
+      </div>
+    );
   }
 
   // ── Vista: Comparador standalone ──────────────────────────────────────────
