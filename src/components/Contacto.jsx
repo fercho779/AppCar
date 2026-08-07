@@ -32,14 +32,14 @@ export function Contacto({ onBack }) {
 
       <button
         onClick={onBack}
-        className="self-start px-4 py-2 bg-white border border-[#e2e2e2] rounded-[10px] text-[13px] text-[#1a1a1a] hover:border-[#cc0000] transition-colors"
+        className="self-start px-4 py-2 bg-white border border-[#e2e2e2] rounded-[10px] text-[13px] text-[#1a1a1a] hover:border-[#e63946] transition-colors"
       >
         ← Volver al catálogo
       </button>
 
       {/* Header banner */}
-      <div className="bg-[#1a1a1a] rounded-[16px] px-8 py-6 flex flex-col gap-2">
-        <span className="text-[#cc0000] text-[11px] uppercase tracking-[2px] font-medium">
+      <div className="bg-[#111111] rounded-[16px] px-8 py-6 flex flex-col gap-2">
+        <span className="text-[#e63946] text-[11px] uppercase tracking-[2px] font-medium">
           Contacto
         </span>
         <h1 className="text-white text-[22px] font-semibold">
@@ -73,7 +73,7 @@ export function Contacto({ onBack }) {
             </div>
           ))}
 
-          <div className="bg-[#fff0f0] border border-[#f5c6c6] rounded-[12px] px-4 py-4">
+          <div className="bg-[#fff1f2] border border-[#f5c6c6] rounded-[12px] px-4 py-4">
             <p className="text-[12px] text-[#7a0c0c] leading-relaxed">
               Tiempo de respuesta habitual: <strong>24–48 hs</strong> en días hábiles.
             </p>
@@ -97,7 +97,7 @@ export function Contacto({ onBack }) {
               </div>
               <button
                 onClick={() => { setEnviado(false); setForm({ nombre: '', email: '', motivo: '', mensaje: '' }); }}
-                className="mt-1 px-5 py-2 text-[12px] border border-[#e2e2e2] rounded-[8px] text-[#1a1a1a] hover:border-[#cc0000] transition-colors"
+                className="mt-1 px-5 py-2 text-[12px] border border-[#e2e2e2] rounded-[8px] text-[#1a1a1a] hover:border-[#e63946] transition-colors"
               >
                 Enviar otro mensaje
               </button>
@@ -118,7 +118,7 @@ export function Contacto({ onBack }) {
                     onChange={handleChange}
                     required
                     placeholder="Tu nombre completo"
-                    className="px-3 py-2.5 text-[13px] border border-[#e2e2e2] rounded-[8px] outline-none focus:border-[#cc0000] transition-colors placeholder:text-[#d0d0d0] bg-[#fafafa] focus:bg-white"
+                    className="px-3 py-2.5 text-[13px] border border-[#e2e2e2] rounded-[8px] outline-none focus:border-[#e63946] transition-colors placeholder:text-[#d0d0d0] bg-[#fafafa] focus:bg-white"
                   />
                 </div>
                 <div className="flex-1 flex flex-col gap-1.5">
@@ -132,7 +132,7 @@ export function Contacto({ onBack }) {
                     onChange={handleChange}
                     required
                     placeholder="tu@email.com"
-                    className="px-3 py-2.5 text-[13px] border border-[#e2e2e2] rounded-[8px] outline-none focus:border-[#cc0000] transition-colors placeholder:text-[#d0d0d0] bg-[#fafafa] focus:bg-white"
+                    className="px-3 py-2.5 text-[13px] border border-[#e2e2e2] rounded-[8px] outline-none focus:border-[#e63946] transition-colors placeholder:text-[#d0d0d0] bg-[#fafafa] focus:bg-white"
                   />
                 </div>
               </div>
@@ -146,7 +146,7 @@ export function Contacto({ onBack }) {
                   name="motivo"
                   value={form.motivo}
                   onChange={handleChange}
-                  className="px-3 py-2.5 text-[13px] border border-[#e2e2e2] rounded-[8px] outline-none focus:border-[#cc0000] transition-colors bg-[#fafafa] focus:bg-white text-[#5a5a5a]"
+                  className="px-3 py-2.5 text-[13px] border border-[#e2e2e2] rounded-[8px] outline-none focus:border-[#e63946] transition-colors bg-[#fafafa] focus:bg-white text-[#5a5a5a]"
                 >
                   <option value="">Seleccioná un motivo...</option>
                   {motivos.map((m) => (
@@ -167,7 +167,7 @@ export function Contacto({ onBack }) {
                   required
                   rows={5}
                   placeholder="Contanos tu consulta con el mayor detalle posible..."
-                  className="px-3 py-2.5 text-[13px] border border-[#e2e2e2] rounded-[8px] outline-none focus:border-[#cc0000] transition-colors resize-none placeholder:text-[#d0d0d0] bg-[#fafafa] focus:bg-white"
+                  className="px-3 py-2.5 text-[13px] border border-[#e2e2e2] rounded-[8px] outline-none focus:border-[#e63946] transition-colors resize-none placeholder:text-[#d0d0d0] bg-[#fafafa] focus:bg-white"
                 />
               </div>
 
@@ -175,7 +175,7 @@ export function Contacto({ onBack }) {
                 <span className="text-[11px] text-[#bbb]">* Campos obligatorios</span>
                 <button
                   type="submit"
-                  className="px-6 py-2.5 bg-[#cc0000] text-white text-[13px] font-medium rounded-[8px] hover:bg-[#aa0000] transition-colors"
+                  className="px-6 py-2.5 bg-[#e63946] text-white text-[13px] font-medium rounded-[8px] hover:bg-[#c1121f] transition-colors"
                 >
                   Enviar mensaje →
                 </button>

@@ -1,7 +1,8 @@
 import { useState, useRef, useEffect } from 'react';
+import ReactMarkdown from 'react-markdown';
 
 const SUGERENCIAS = [
-  '¿Qué auto me recomendás para la ciudad?',
+  '¿Qué auto me recomiendan para la ciudad?',
   'Busco algo para viajes largos con familia',
   '¿Cuál es mejor para el campo?',
   'Quiero algo económico en combustible',
@@ -10,20 +11,26 @@ const SUGERENCIAS = [
 function Message({ msg }) {
   const isUser = msg.role === 'user';
   return (
-    <div className={`flex gap-3 ${isUser ? 'flex-row-reverse' : 'flex-row'}`}>
+    <div className={`flex gap-3 ${isUser ? 'flex-row-reverse' : 'flex-row'} items-end`}>
       {!isUser && (
-        <div className="w-8 h-8 rounded-full bg-[#cc0000] flex items-center justify-center flex-shrink-0 mt-0.5">
-          <span className="text-white text-[11px] font-bold">IA</span>
+        <div className="w-8 h-8 rounded-full bg-[#e63946] flex items-center justify-center flex-shrink-0 shadow-md">
+          <span className="text-white text-[10px] font-black tracking-tight">AC</span>
         </div>
       )}
       <div
-        className={`max-w-[75%] px-4 py-3 rounded-[14px] text-[13px] leading-relaxed ${
+        className={`max-w-[78%] px-4 py-3.5 text-[13.5px] leading-[1.75] shadow-sm ${
           isUser
-            ? 'bg-[#cc0000] text-white rounded-tr-[4px]'
-            : 'bg-white border border-[#e2e2e2] text-[#1a1a1a] rounded-tl-[4px]'
+            ? 'bg-[#e63946] text-white rounded-[18px] rounded-br-[4px]'
+            : 'bg-white border border-[#ebebeb] text-[#1a1a1a] rounded-[18px] rounded-bl-[4px]'
         }`}
       >
-        {msg.content}
+        {isUser ? (
+          <span>{msg.content}</span>
+        ) : (
+          <div className="[&_p]:mb-2 [&_p:last-child]:mb-0 [&_ul]:pl-4 [&_ul]:mb-2 [&_ul_li]:mb-1 [&_ol]:pl-4 [&_ol]:mb-2 [&_strong]:font-semibold [&_h3]:font-semibold [&_h3]:mb-1">
+            <ReactMarkdown>{msg.content}</ReactMarkdown>
+          </div>
+        )}
       </div>
     </div>
   );
@@ -53,13 +60,9 @@ export function AsesorIA({ onBack }) {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          messages: newMessages.map((m) => ({
-            role: m.role,
-            content: m.content,
-          })),
+          messages: newMessages.map((m) => ({ role: m.role, content: m.content })),
         }),
       });
-
       const data = await res.json();
       setMessages((prev) => [
         ...prev,
@@ -68,7 +71,7 @@ export function AsesorIA({ onBack }) {
     } catch {
       setMessages((prev) => [
         ...prev,
-        { role: 'assistant', content: 'No pude conectarme. Revisá tu conexión e intentá de nuevo.' },
+        { role: 'assistant', content: 'No pude conectarme. Revisa tu conexión e intenta de nuevo.' },
       ]);
     } finally {
       setLoading(false);
@@ -77,49 +80,45 @@ export function AsesorIA({ onBack }) {
 
   return (
     <div className="flex flex-col gap-5">
-
       <button
         onClick={onBack}
-        className="self-start px-4 py-2 bg-white border border-[#e2e2e2] rounded-[10px] text-[13px] text-[#1a1a1a] hover:border-[#cc0000] transition-colors"
+        className="self-start px-4 py-2 bg-white border border-[#e2e2e2] rounded-[10px] text-[13px] text-[#1a1a1a] hover:border-[#e63946] transition-colors"
       >
         ← Volver al catálogo
       </button>
 
-      {/* Hero */}
-      <div className="bg-[#1a1a1a] rounded-[16px] px-8 py-7 flex flex-col gap-2">
-        <span className="text-[#cc0000] text-[11px] uppercase tracking-[2px] font-medium">
+      <div className="bg-[#111111] rounded-[16px] px-8 py-7 flex flex-col gap-2">
+        <span className="text-[#e63946] text-[11px] uppercase tracking-[2px] font-semibold">
           Inteligencia Artificial
         </span>
         <h1 className="text-white text-[22px] font-semibold">Asesor IA</h1>
         <p className="text-[#888] text-[13px] leading-relaxed">
-          Contame qué necesitás y te recomiendo el vehículo ideal para vos.
+          Contame qué necesitas y te recomiendo el vehículo ideal para ti.
         </p>
       </div>
 
-      {/* Chat */}
-      <div className="bg-white border border-[#e2e2e2] rounded-[16px] overflow-hidden flex flex-col" style={{ height: '520px' }}>
+      <div className="bg-[#f9f9f9] border border-[#e8e8e8] rounded-[20px] overflow-hidden flex flex-col shadow-sm" style={{ height: '540px' }}>
 
-        {/* Mensajes */}
-        <div className="flex-1 overflow-y-auto p-5 flex flex-col gap-4">
+        <div className="flex-1 overflow-y-auto px-5 py-6 flex flex-col gap-5">
           {messages.length === 0 && (
-            <div className="flex flex-col items-center justify-center h-full gap-5 text-center">
-              <div className="w-14 h-14 rounded-full bg-[#fff0f0] flex items-center justify-center">
-                <span className="text-[#cc0000] text-[24px]">🤖</span>
+            <div className="flex flex-col items-center justify-center h-full gap-6 text-center">
+              <div className="w-16 h-16 rounded-2xl bg-[#e63946] flex items-center justify-center shadow-lg">
+                <span className="text-white text-[26px]">🚗</span>
               </div>
               <div>
-                <p className="text-[14px] font-semibold text-[#1a1a1a] mb-1">
+                <p className="text-[15px] font-semibold text-[#111] mb-1">
                   ¡Hola! Soy tu asesor automotriz
                 </p>
-                <p className="text-[12px] text-[#9a9a9a]">
-                  Preguntame lo que quieras sobre vehículos
+                <p className="text-[13px] text-[#9a9a9a]">
+                  Pregúntame lo que quieras sobre vehículos
                 </p>
               </div>
-              <div className="flex flex-wrap gap-2 justify-center">
+              <div className="flex flex-wrap gap-2 justify-center max-w-[420px]">
                 {SUGERENCIAS.map((s) => (
                   <button
                     key={s}
                     onClick={() => sendMessage(s)}
-                    className="px-3 py-1.5 text-[12px] bg-[#f5f5f5] border border-[#e2e2e2] rounded-full text-[#1a1a1a] hover:border-[#cc0000] hover:text-[#cc0000] transition-colors"
+                    className="px-4 py-2 text-[12px] bg-white border border-[#e2e2e2] rounded-full text-[#444] hover:border-[#e63946] hover:text-[#e63946] transition-colors shadow-sm"
                   >
                     {s}
                   </button>
@@ -133,14 +132,14 @@ export function AsesorIA({ onBack }) {
           ))}
 
           {loading && (
-            <div className="flex gap-3">
-              <div className="w-8 h-8 rounded-full bg-[#cc0000] flex items-center justify-center flex-shrink-0">
-                <span className="text-white text-[11px] font-bold">IA</span>
+            <div className="flex gap-3 items-end">
+              <div className="w-8 h-8 rounded-full bg-[#e63946] flex items-center justify-center flex-shrink-0 shadow-md">
+                <span className="text-white text-[10px] font-black">AC</span>
               </div>
-              <div className="bg-white border border-[#e2e2e2] rounded-[14px] rounded-tl-[4px] px-4 py-3 flex gap-1 items-center">
-                <span className="w-1.5 h-1.5 bg-[#9a9a9a] rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
-                <span className="w-1.5 h-1.5 bg-[#9a9a9a] rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
-                <span className="w-1.5 h-1.5 bg-[#9a9a9a] rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
+              <div className="bg-white border border-[#ebebeb] rounded-[18px] rounded-bl-[4px] px-5 py-4 flex gap-1.5 items-center shadow-sm">
+                <span className="w-2 h-2 bg-[#d0d0d0] rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
+                <span className="w-2 h-2 bg-[#d0d0d0] rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
+                <span className="w-2 h-2 bg-[#d0d0d0] rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
               </div>
             </div>
           )}
@@ -148,23 +147,25 @@ export function AsesorIA({ onBack }) {
           <div ref={bottomRef} />
         </div>
 
-        {/* Input */}
-        <div className="border-t border-[#e2e2e2] p-4 flex gap-3">
+        <div className="border-t border-[#e8e8e8] bg-white px-4 py-3.5 flex gap-3">
           <input
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={(e) => e.key === 'Enter' && !e.shiftKey && sendMessage()}
-            placeholder="Escribí tu consulta..."
+            placeholder="Escribe tu consulta..."
             disabled={loading}
-            className="flex-1 px-4 py-2.5 text-[13px] bg-[#f5f5f5] border border-[#e2e2e2] rounded-[10px] outline-none focus:border-[#cc0000] disabled:opacity-50 transition-colors"
+            className="flex-1 px-4 py-2.5 text-[13px] bg-[#f5f5f5] border border-[#e8e8e8] rounded-full outline-none focus:border-[#e63946] focus:bg-white disabled:opacity-50 transition-all"
           />
           <button
             onClick={() => sendMessage()}
             disabled={!input.trim() || loading}
-            className="px-5 py-2.5 bg-[#cc0000] text-white text-[13px] font-medium rounded-[10px] hover:bg-[#aa0000] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+            className="w-10 h-10 bg-[#e63946] text-white rounded-full flex items-center justify-center hover:bg-[#c1121f] disabled:opacity-40 disabled:cursor-not-allowed transition-colors flex-shrink-0"
           >
-            Enviar
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="22" y1="2" x2="11" y2="13" />
+              <polygon points="22 2 15 22 11 13 2 9 22 2" />
+            </svg>
           </button>
         </div>
       </div>

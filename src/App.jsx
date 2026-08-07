@@ -1,6 +1,5 @@
-import Login from './components/Login';
 import { useState } from 'react';
-import Formulario from "./components/formulario";
+import { Landing } from './components/Landing';
 import { Header } from './components/Header';
 import { Sidebar } from './components/Sidebar';
 import { FilterBar } from './components/FilterBar';
@@ -24,30 +23,15 @@ const HEADER_VIEW_MAP = {
 };
 
 export default function App() {
-  const [currentView, setCurrentView] = useState('vehicles');   // 'vehicles' | 'nosotros' | 'contacto'
+  const [currentView, setCurrentView] = useState('landing');
   const [activeFilter, setActiveFilter] = useState('Todos');
   const [sidebarCategory, setSidebarCategory] = useState('Todos los vehículos');
   const [sidebarMarca, setSidebarMarca] = useState('Todas las marcas');
   const [selectedVehicle, setSelectedVehicle] = useState(null);
   const [compareVehicle, setCompareVehicle] = useState(null);
-  const [logueado, setLogueado] = useState(false);
-  const [mostrarRegistro, setMostrarRegistro] = useState(false);
 
-  if (!logueado) {
-    if (mostrarRegistro) {
-      return (
-        <Formulario
-          onRegister={() => setMostrarRegistro(false)}
-        />
-      );
-    }
-
-    return (
-      <Login
-        onLogin={() => setLogueado(true)}
-        onGoToRegister={() => setMostrarRegistro(true)}
-      />
-    );
+  if (currentView === 'landing') {
+    return <Landing onEnter={(view) => setCurrentView(view || 'vehicles')} />;
   }
 
   // Qué link del Header aparece activo
@@ -150,7 +134,7 @@ export default function App() {
         <div className="max-w-[1100px] mx-auto py-6 px-5">
           <div className="mb-4">
             <span className="text-[11px] text-[#9a9a9a]">
-              Inicio › <span className="text-[#cc0000]">Comparador</span>
+              Inicio › <span className="text-[#e63946]">Comparador</span>
             </span>
           </div>
           <ComparadorPage vehicles={vehicles} onBack={() => setCurrentView('vehicles')} />
@@ -191,7 +175,7 @@ export default function App() {
             <main className="flex-1 min-w-0">
               <div className="mb-4">
                 <span className="text-[11px] text-[#9a9a9a]">
-                  Inicio › <span className="text-[#cc0000]">Guía de compra</span>
+                  Inicio › <span className="text-[#e63946]">Guía de compra</span>
                 </span>
               </div>
               <GuiaDeCompra onBack={() => setCurrentView('vehicles')} />
@@ -233,7 +217,7 @@ export default function App() {
           <main className="flex-1 min-w-0">
             <div className="mb-4">
               <span className="text-[11px] text-[#9a9a9a]">
-                Inicio › <span className="text-[#cc0000]">Vehículos</span>
+                Inicio › <span className="text-[#e63946]">Vehículos</span>
                 {sidebarCategory !== 'Todos los vehículos' && (
                   <> › <span className="text-[#1a1a1a]">{sidebarCategory}</span></>
                 )}

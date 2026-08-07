@@ -32,7 +32,7 @@ function Formulario({ onRegister }) {
             value={nombre}
             onChange={(e) => setNombre(e.target.value)}
             required
-            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#cc0000]"
+            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#e63946]"
           />
         </div>
 
@@ -44,7 +44,7 @@ function Formulario({ onRegister }) {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#cc0000]"
+            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#e63946]"
           />
         </div>
 
@@ -56,13 +56,13 @@ function Formulario({ onRegister }) {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
-            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#cc0000]"
+            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#e63946]"
           />
         </div>
 
         <button
           type="submit"
-          className="w-full bg-[#cc0000] text-white py-2 rounded-lg hover:bg-[#a80000]"
+          className="w-full bg-[#e63946] text-white py-2 rounded-lg hover:bg-[#a80000]"
         >
           Registrarse
         </button>

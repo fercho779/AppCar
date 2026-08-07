@@ -42,7 +42,7 @@ function VehicleSearchModal({ vehicles, excludeId, onSelect, onClose }) {
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header modal */}
-        <div className="bg-[#1a1a1a] px-5 py-4 flex items-center justify-between">
+        <div className="bg-[#111111] px-5 py-4 flex items-center justify-between">
           <div>
             <p className="text-white text-[14px] font-semibold">Elegí un vehículo para comparar</p>
             <p className="text-[#888] text-[11px] mt-0.5">Buscá por nombre o categoría</p>
@@ -63,7 +63,7 @@ function VehicleSearchModal({ vehicles, excludeId, onSelect, onClose }) {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Ej: Toyota, Hilux, SUV..."
-            className="w-full px-3 py-2.5 text-[13px] border border-[#e2e2e2] rounded-[8px] outline-none focus:border-[#cc0000] transition-colors bg-[#fafafa] focus:bg-white placeholder:text-[#ccc]"
+            className="w-full px-3 py-2.5 text-[13px] border border-[#e2e2e2] rounded-[8px] outline-none focus:border-[#e63946] transition-colors bg-[#fafafa] focus:bg-white placeholder:text-[#ccc]"
           />
         </div>
 
@@ -187,9 +187,9 @@ export function VehicleComparator({ vehicleA, vehicleB, onClose, vehicles, onCha
 
       <div className="mt-6">
         {/* Header del comparador */}
-        <div className="bg-[#1a1a1a] rounded-t-[16px] px-5 py-4 flex items-center justify-between">
+        <div className="bg-[#111111] rounded-t-[16px] px-5 py-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <span className="text-[#cc0000] text-[13px]">⇄</span>
+            <span className="text-[#e63946] text-[13px]">⇄</span>
             <span className="text-white text-[14px] font-semibold">Comparación de vehículos</span>
           </div>
           <button
@@ -209,7 +209,7 @@ export function VehicleComparator({ vehicleA, vehicleB, onClose, vehicles, onCha
             {/* Auto A */}
             <div className="p-5 border-r border-[#e2e2e2]">
               <div className="flex items-center gap-2 mb-1">
-                <span className="text-[10px] bg-[#1a1a1a] text-white px-2 py-0.5 rounded-full font-mono">A</span>
+                <span className="text-[10px] bg-[#111111] text-white px-2 py-0.5 rounded-full font-mono">A</span>
                 <span className="text-[11px] text-[#9a9a9a] uppercase tracking-wider">Vehículo base</span>
               </div>
               <p className="text-[15px] font-semibold text-[#1a1a1a]">{vehicleA.name}</p>
@@ -230,12 +230,12 @@ export function VehicleComparator({ vehicleA, vehicleB, onClose, vehicles, onCha
             <div className="p-5">
               <div className="flex items-center justify-between mb-1">
                 <div className="flex items-center gap-2">
-                  <span className="text-[10px] bg-[#cc0000] text-white px-2 py-0.5 rounded-full font-mono">B</span>
+                  <span className="text-[10px] bg-[#e63946] text-white px-2 py-0.5 rounded-full font-mono">B</span>
                   <span className="text-[11px] text-[#9a9a9a] uppercase tracking-wider">Comparar con</span>
                 </div>
                 <button
                   onClick={() => setShowSearch(true)}
-                  className="text-[11px] text-[#cc0000] hover:underline"
+                  className="text-[11px] text-[#e63946] hover:underline"
                 >
                   Cambiar →
                 </button>
@@ -262,7 +262,7 @@ export function VehicleComparator({ vehicleA, vehicleB, onClose, vehicles, onCha
             <tbody className="divide-y divide-[#e2e2e2]">
 
               {/* ── Sección: General ─────────────────────────── */}
-              <tr className="bg-[#1a1a1a]">
+              <tr className="bg-[#111111]">
                 <td colSpan={3} className="px-4 py-2">
                   <span className="text-[10px] text-[#888] uppercase tracking-[2px] font-medium">
                     General
@@ -283,7 +283,7 @@ export function VehicleComparator({ vehicleA, vehicleB, onClose, vehicles, onCha
               />
 
               {/* ── Sección: Datos técnicos ───────────────────── */}
-              <tr className="bg-[#1a1a1a]">
+              <tr className="bg-[#111111]">
                 <td colSpan={3} className="px-4 py-2">
                   <span className="text-[10px] text-[#888] uppercase tracking-[2px] font-medium">
                     Datos técnicos
@@ -313,7 +313,7 @@ export function VehicleComparator({ vehicleA, vehicleB, onClose, vehicles, onCha
               })}
 
               {/* ── Sección: Ventajas ─────────────────────────── */}
-              <tr className="bg-[#1a1a1a]">
+              <tr className="bg-[#111111]">
                 <td colSpan={3} className="px-4 py-2">
                   <span className="text-[10px] text-[#888] uppercase tracking-[2px] font-medium">
                     Ventajas
@@ -348,7 +348,7 @@ export function VehicleComparator({ vehicleA, vehicleB, onClose, vehicles, onCha
               </tr>
 
               {/* ── Sección: Desventajas ──────────────────────── */}
-              <tr className="bg-[#1a1a1a]">
+              <tr className="bg-[#111111]">
                 <td colSpan={3} className="px-4 py-2">
                   <span className="text-[10px] text-[#888] uppercase tracking-[2px] font-medium">
                     Desventajas
@@ -364,7 +364,7 @@ export function VehicleComparator({ vehicleA, vehicleB, onClose, vehicles, onCha
                   <ul className="flex flex-col gap-1.5">
                     {vehicleA.desventajas.map((d, i) => (
                       <li key={i} className="flex items-start gap-2 text-[12.5px] text-[#5a5a5a]">
-                        <span className="text-[#cc0000] mt-0.5 flex-shrink-0">•</span>
+                        <span className="text-[#e63946] mt-0.5 flex-shrink-0">•</span>
                         <span>{d}</span>
                       </li>
                     ))}
@@ -374,7 +374,7 @@ export function VehicleComparator({ vehicleA, vehicleB, onClose, vehicles, onCha
                   <ul className="flex flex-col gap-1.5">
                     {vehicleB.desventajas.map((d, i) => (
                       <li key={i} className="flex items-start gap-2 text-[12.5px] text-[#5a5a5a]">
-                        <span className="text-[#cc0000] mt-0.5 flex-shrink-0">•</span>
+                        <span className="text-[#e63946] mt-0.5 flex-shrink-0">•</span>
                         <span>{d}</span>
                       </li>
                     ))}
@@ -396,7 +396,7 @@ export function VehicleComparator({ vehicleA, vehicleB, onClose, vehicles, onCha
           </div>
           <button
             onClick={() => setShowFullSpecs((v) => !v)}
-            className="text-[12px] text-[#cc0000] font-medium hover:underline flex items-center gap-1"
+            className="text-[12px] text-[#e63946] font-medium hover:underline flex items-center gap-1"
           >
             {showFullSpecs ? 'Ocultar especificaciones completas' : 'Ver especificaciones completas'}
             <span className={`text-[10px] transition-transform ${showFullSpecs ? 'rotate-180' : ''}`}>▾</span>
@@ -410,7 +410,7 @@ export function VehicleComparator({ vehicleA, vehicleB, onClose, vehicles, onCha
               <tbody className="divide-y divide-[#e2e2e2]">
                 {SPEC_SECTIONS.map((section) => (
                   <Fragment key={section.id}>
-                    <tr className="bg-[#1a1a1a]">
+                    <tr className="bg-[#111111]">
                       <td colSpan={3} className="px-4 py-2">
                         <span className="text-[10px] text-[#888] uppercase tracking-[2px] font-medium">
                           {section.title}

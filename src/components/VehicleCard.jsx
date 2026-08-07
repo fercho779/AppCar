@@ -7,10 +7,10 @@ export function VehicleCard({ vehicle, onClick }) {
   return (
     <div
       onClick={onClick}
-      className="bg-white border border-[#e2e2e2] rounded-[10px] overflow-hidden cursor-pointer hover:-translate-y-0.5 hover:border-[#cc0000] transition-all flex flex-col"
+      className="bg-white border border-[#e2e2e2] rounded-[10px] overflow-hidden cursor-pointer hover:-translate-y-0.5 hover:border-[#e63946] transition-all flex flex-col"
     >
       <div className="relative h-[120px] bg-[#f8f8f8]">
-        <span className="absolute top-2 left-2 z-10 px-2 py-0.5 bg-[#1a1a1a] text-white text-[10px] rounded-full uppercase tracking-wider">
+        <span className="absolute top-2 left-2 z-10 px-2 py-0.5 bg-[#111111] text-white text-[10px] rounded-full uppercase tracking-wider">
           {vehicle.marca}
         </span>
         <VehicleImage src={vehicle.imagenUrl} alt={vehicle.name} />
