@@ -39,8 +39,8 @@ export function Sidebar({
           key={section.category}
           className="bg-white border border-[#e2e2e2] rounded-[10px] overflow-hidden"
         >
-          <div className="bg-[#111111] px-3 py-2">
-            <span className="text-[#888] text-[10px] uppercase tracking-wider">
+          <div className="px-3 py-2 border-b border-[#efefef]">
+            <span className="text-[#b0b0b0] text-[10px] uppercase tracking-wider font-semibold">
               {section.category}
             </span>
           </div>

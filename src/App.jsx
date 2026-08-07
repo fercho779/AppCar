@@ -80,8 +80,8 @@ export default function App() {
 
     if (vehicle) {
       return (
-        <div className="min-h-screen bg-[#f0f0f0]">
-          <Header activeNav={activeNav} onNavChange={handleNavChange} />
+        <div className="min-h-screen bg-[#f7f7f7]">
+          <Header activeNav={activeNav} onNavChange={handleNavChange} onLogoClick={() => setCurrentView('landing')} />
           <div className="max-w-[1100px] mx-auto py-6 px-5">
             <VehicleDetail
               vehicle={vehicle}
@@ -117,8 +117,8 @@ export default function App() {
   // ── Vista: Asesor IA ───────────────────────────────────────────────────────
   if (currentView === 'asesor') {
     return (
-      <div className="min-h-screen bg-[#f0f0f0]">
-        <Header activeNav="Asesor IA" onNavChange={handleNavChange} />
+      <div className="min-h-screen bg-[#f7f7f7]">
+        <Header activeNav="Asesor IA" onNavChange={handleNavChange} onLogoClick={() => setCurrentView('landing')} />
         <div className="max-w-[1100px] mx-auto py-6 px-5">
           <AsesorIA onBack={() => setCurrentView('vehicles')} />
         </div>
@@ -129,8 +129,8 @@ export default function App() {
   // ── Vista: Comparador standalone ──────────────────────────────────────────
   if (currentView === 'comparador') {
     return (
-      <div className="min-h-screen bg-[#f0f0f0]">
-        <Header activeNav="Comparador" onNavChange={handleNavChange} />
+      <div className="min-h-screen bg-[#f7f7f7]">
+        <Header activeNav="Comparador" onNavChange={handleNavChange} onLogoClick={() => setCurrentView('landing')} />
         <div className="max-w-[1100px] mx-auto py-6 px-5">
           <div className="mb-4">
             <span className="text-[11px] text-[#9a9a9a]">
@@ -146,8 +146,8 @@ export default function App() {
   // ── Vistas sin sidebar (Nosotros / Contacto) ───────────────────────────────
   if (currentView === 'nosotros' || currentView === 'contacto') {
     return (
-      <div className="min-h-screen bg-[#f0f0f0]">
-        <Header activeNav={activeNav} onNavChange={handleNavChange} />
+      <div className="min-h-screen bg-[#f7f7f7]">
+        <Header activeNav={activeNav} onNavChange={handleNavChange} onLogoClick={() => setCurrentView('landing')} />
         <div className="max-w-[1100px] mx-auto py-6 px-5">
           {currentView === 'nosotros' && <Nosotros onBack={() => setCurrentView('vehicles')} />}
           {currentView === 'contacto' && <Contacto onBack={() => setCurrentView('vehicles')} />}
@@ -159,8 +159,8 @@ export default function App() {
   // ── Vista: Guía de compra (con sidebar visible) ────────────────────────────
   if (currentView === 'guia') {
     return (
-      <div className="min-h-screen bg-[#f0f0f0]">
-        <Header activeNav={activeNav} onNavChange={handleNavChange} />
+      <div className="min-h-screen bg-[#f7f7f7]">
+        <Header activeNav={activeNav} onNavChange={handleNavChange} onLogoClick={() => setCurrentView('landing')} />
         <div className="max-w-[1100px] mx-auto py-6 px-5">
           <div className="flex gap-5">
             <Sidebar
@@ -199,8 +199,8 @@ export default function App() {
     );
 
   return (
-    <div className="min-h-screen bg-[#f0f0f0]">
-      <Header activeNav={activeNav} onNavChange={handleNavChange} />
+    <div className="min-h-screen bg-[#f7f7f7]">
+      <Header activeNav={activeNav} onNavChange={handleNavChange} onLogoClick={() => setCurrentView('landing')} />
 
       <div className="max-w-[1100px] mx-auto py-6 px-5">
         <div className="flex gap-5">
