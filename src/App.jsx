@@ -13,6 +13,22 @@ import { ComparadorPage } from './components/ComparadorPage';
 import { AsesorIA } from './components/AsesorIA';
 import { vehicles, categories, marcas } from './data/vehicles.js';
 
+function FloatingIA({ onClick }) {
+  return (
+    <button
+      onClick={onClick}
+      title="Abrir Asesor IA"
+      className="fixed bottom-6 right-6 z-40 flex items-center gap-2.5 bg-[#0f172a] text-white pl-3.5 pr-4 py-2.5 rounded-full shadow-xl hover:bg-[#1e293b] transition-all"
+    >
+      <div className="relative flex-shrink-0">
+        <div className="w-2 h-2 bg-emerald-400 rounded-full" />
+        <div className="absolute inset-0 w-2 h-2 bg-emerald-400 rounded-full animate-ping opacity-70" />
+      </div>
+      <span className="text-[13px] font-medium">Asesor IA</span>
+    </button>
+  );
+}
+
 // Mapeo: link del Header → nombre de vista
 const HEADER_VIEW_MAP = {
   'Vehículos': 'vehicles',
@@ -80,36 +96,38 @@ export default function App() {
 
     if (vehicle) {
       return (
-        <div className="min-h-screen bg-[#f7f7f7]">
-          <Header activeNav={activeNav} onNavChange={handleNavChange} onLogoClick={() => setCurrentView('landing')} />
-          <div className="max-w-[1100px] mx-auto py-6 px-5">
-            <VehicleDetail
-              vehicle={vehicle}
-              onBack={() => { setSelectedVehicle(null); setCompareVehicle(null); }}
-              onCompare={() => setCompareVehicle(-1)} // -1 = abre buscador sin vehículo B elegido
-            />
-            {/* Comparador: si compareVehicle === -1 mostramos el modal de búsqueda directo */}
-            {compareVehicle === -1 && (
-              <VehicleComparator
-                vehicleA={vehicle}
-                vehicleB={null}
-                vehicles={vehicles}
-                onClose={() => setCompareVehicle(null)}
-                onChangeB={(v) => setCompareVehicle(v.id)}
-                openSearchImmediately
+        <>
+          <div className="min-h-screen bg-[#f7f7f7]">
+            <Header activeNav={activeNav} onNavChange={handleNavChange} onLogoClick={() => setCurrentView('landing')} />
+            <div className="max-w-[1100px] mx-auto py-6 px-5">
+              <VehicleDetail
+                vehicle={vehicle}
+                onBack={() => { setSelectedVehicle(null); setCompareVehicle(null); }}
+                onCompare={() => setCompareVehicle(-1)}
               />
-            )}
-            {vehicleB && (
-              <VehicleComparator
-                vehicleA={vehicle}
-                vehicleB={vehicleB}
-                vehicles={vehicles}
-                onClose={() => setCompareVehicle(null)}
-                onChangeB={(v) => setCompareVehicle(v.id)}
-              />
-            )}
+              {compareVehicle === -1 && (
+                <VehicleComparator
+                  vehicleA={vehicle}
+                  vehicleB={null}
+                  vehicles={vehicles}
+                  onClose={() => setCompareVehicle(null)}
+                  onChangeB={(v) => setCompareVehicle(v.id)}
+                  openSearchImmediately
+                />
+              )}
+              {vehicleB && (
+                <VehicleComparator
+                  vehicleA={vehicle}
+                  vehicleB={vehicleB}
+                  vehicles={vehicles}
+                  onClose={() => setCompareVehicle(null)}
+                  onChangeB={(v) => setCompareVehicle(v.id)}
+                />
+              )}
+            </div>
           </div>
-        </div>
+          <FloatingIA onClick={() => setCurrentView('asesor')} />
+        </>
       );
     }
   }
@@ -129,30 +147,36 @@ export default function App() {
   // ── Vista: Comparador standalone ──────────────────────────────────────────
   if (currentView === 'comparador') {
     return (
-      <div className="min-h-screen bg-[#f7f7f7]">
-        <Header activeNav="Comparador" onNavChange={handleNavChange} onLogoClick={() => setCurrentView('landing')} />
-        <div className="max-w-[1100px] mx-auto py-6 px-5">
-          <div className="mb-4">
-            <span className="text-[11px] text-[#9a9a9a]">
-              Inicio › <span className="text-[#e63946]">Comparador</span>
-            </span>
+      <>
+        <div className="min-h-screen bg-[#f7f7f7]">
+          <Header activeNav="Comparador" onNavChange={handleNavChange} onLogoClick={() => setCurrentView('landing')} />
+          <div className="max-w-[1100px] mx-auto py-6 px-5">
+            <div className="mb-4">
+              <span className="text-[11px] text-[#9a9a9a]">
+                Inicio › <span className="text-[#0d9488]">Comparador</span>
+              </span>
+            </div>
+            <ComparadorPage vehicles={vehicles} onBack={() => setCurrentView('vehicles')} />
           </div>
-          <ComparadorPage vehicles={vehicles} onBack={() => setCurrentView('vehicles')} />
         </div>
-      </div>
+        <FloatingIA onClick={() => setCurrentView('asesor')} />
+      </>
     );
   }
 
   // ── Vistas sin sidebar (Nosotros / Contacto) ───────────────────────────────
   if (currentView === 'nosotros' || currentView === 'contacto') {
     return (
-      <div className="min-h-screen bg-[#f7f7f7]">
-        <Header activeNav={activeNav} onNavChange={handleNavChange} onLogoClick={() => setCurrentView('landing')} />
-        <div className="max-w-[1100px] mx-auto py-6 px-5">
-          {currentView === 'nosotros' && <Nosotros onBack={() => setCurrentView('vehicles')} />}
-          {currentView === 'contacto' && <Contacto onBack={() => setCurrentView('vehicles')} />}
+      <>
+        <div className="min-h-screen bg-[#f7f7f7]">
+          <Header activeNav={activeNav} onNavChange={handleNavChange} onLogoClick={() => setCurrentView('landing')} />
+          <div className="max-w-[1100px] mx-auto py-6 px-5">
+            {currentView === 'nosotros' && <Nosotros onBack={() => setCurrentView('vehicles')} />}
+            {currentView === 'contacto' && <Contacto onBack={() => setCurrentView('vehicles')} />}
+          </div>
         </div>
-      </div>
+        <FloatingIA onClick={() => setCurrentView('asesor')} />
+      </>
     );
   }
 
@@ -175,13 +199,14 @@ export default function App() {
             <main className="flex-1 min-w-0">
               <div className="mb-4">
                 <span className="text-[11px] text-[#9a9a9a]">
-                  Inicio › <span className="text-[#e63946]">Guía de compra</span>
+                  Inicio › <span className="text-[#0d9488]">Guía de compra</span>
                 </span>
               </div>
               <GuiaDeCompra onBack={() => setCurrentView('vehicles')} />
             </main>
           </div>
         </div>
+        <FloatingIA onClick={() => setCurrentView('asesor')} />
       </div>
     );
   }
@@ -217,7 +242,7 @@ export default function App() {
           <main className="flex-1 min-w-0">
             <div className="mb-4">
               <span className="text-[11px] text-[#9a9a9a]">
-                Inicio › <span className="text-[#e63946]">Vehículos</span>
+                Inicio › <span className="text-[#0d9488]">Vehículos</span>
                 {sidebarCategory !== 'Todos los vehículos' && (
                   <> › <span className="text-[#1a1a1a]">{sidebarCategory}</span></>
                 )}
@@ -258,6 +283,7 @@ export default function App() {
           </main>
         </div>
       </div>
+      <FloatingIA onClick={() => setCurrentView('asesor')} />
     </div>
   );
 }

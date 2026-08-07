@@ -22,8 +22,8 @@ export function FilterBar({ activeFilter, onFilterChange }) {
               onClick={() => onFilterChange(filter)}
               className={`px-4 py-1.5 text-[12px] rounded-[20px] border transition-colors ${
                 isActive
-                  ? 'bg-[#e63946] text-white border-[#e63946]'
-                  : 'bg-[#f5f5f5] text-[#1a1a1a] border-[#e2e2e2] hover:border-[#e63946]'
+                  ? 'bg-[#0d9488] text-white border-[#0d9488]'
+                  : 'bg-[#f5f5f5] text-[#1a1a1a] border-[#e2e2e2] hover:border-[#0d9488]'
               }`}
             >
               {filter}

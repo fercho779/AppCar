@@ -12,7 +12,7 @@ export function Landing({ onEnter }) {
 
       <header className="absolute top-0 left-0 right-0 z-20 flex items-center justify-between px-8 py-5">
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 bg-[#e63946] rounded-[8px] flex items-center justify-center">
+          <div className="w-8 h-8 bg-[#0d9488] rounded-[8px] flex items-center justify-center">
             <span className="text-white text-[11px] font-black tracking-tight">AC</span>
           </div>
           <span className="text-white text-[17px] font-bold tracking-tight">AppCar</span>
@@ -26,13 +26,13 @@ export function Landing({ onEnter }) {
       </header>
 
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
-        <span className="text-[#e63946] text-[11px] uppercase tracking-[3px] font-semibold mb-5">
+        <span className="text-[#0d9488] text-[11px] uppercase tracking-[3px] font-semibold mb-5">
           Asesor automotriz con inteligencia artificial
         </span>
 
         <h1 className="text-white text-[48px] md:text-[62px] font-bold leading-[1.1] mb-6 max-w-[680px]">
           Tu próximo auto,<br />
-          <span className="text-[#e63946]">inteligentemente</span> elegido
+          <span className="text-[#0d9488]">inteligentemente</span> elegido
         </h1>
 
         <p className="text-white/65 text-[16px] leading-relaxed mb-10 max-w-[480px]">
@@ -42,7 +42,7 @@ export function Landing({ onEnter }) {
         <div className="flex gap-4 flex-wrap justify-center">
           <button
             onClick={() => onEnter('vehicles')}
-            className="px-8 py-3.5 bg-[#e63946] text-white text-[15px] font-semibold rounded-full hover:bg-[#c1121f] transition-colors shadow-lg shadow-red-900/30"
+            className="px-8 py-3.5 bg-[#0d9488] text-white text-[15px] font-semibold rounded-full hover:bg-[#0f766e] transition-colors shadow-lg shadow-teal-900/30"
           >
             Ver catálogo
           </button>

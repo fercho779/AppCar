@@ -13,14 +13,14 @@ function Message({ msg }) {
   return (
     <div className={`flex gap-3 ${isUser ? 'flex-row-reverse' : 'flex-row'} items-end`}>
       {!isUser && (
-        <div className="w-8 h-8 rounded-full bg-[#e63946] flex items-center justify-center flex-shrink-0 shadow-md">
+        <div className="w-8 h-8 rounded-full bg-[#0d9488] flex items-center justify-center flex-shrink-0 shadow-md">
           <span className="text-white text-[10px] font-black tracking-tight">AC</span>
         </div>
       )}
       <div
         className={`max-w-[78%] px-4 py-3.5 text-[13.5px] leading-[1.75] shadow-sm ${
           isUser
-            ? 'bg-[#e63946] text-white rounded-[18px] rounded-br-[4px]'
+            ? 'bg-[#0d9488] text-white rounded-[18px] rounded-br-[4px]'
             : 'bg-white border border-[#ebebeb] text-[#1a1a1a] rounded-[18px] rounded-bl-[4px]'
         }`}
       >
@@ -82,13 +82,13 @@ export function AsesorIA({ onBack }) {
     <div className="flex flex-col gap-5">
       <button
         onClick={onBack}
-        className="self-start px-4 py-2 bg-white border border-[#e2e2e2] rounded-[10px] text-[13px] text-[#1a1a1a] hover:border-[#e63946] transition-colors"
+        className="self-start px-4 py-2 bg-white border border-[#e2e2e2] rounded-[10px] text-[13px] text-[#1a1a1a] hover:border-[#0d9488] transition-colors"
       >
         ← Volver al catálogo
       </button>
 
       <div className="bg-[#111111] rounded-[16px] px-8 py-7 flex flex-col gap-2">
-        <span className="text-[#e63946] text-[11px] uppercase tracking-[2px] font-semibold">
+        <span className="text-[#0d9488] text-[11px] uppercase tracking-[2px] font-semibold">
           Inteligencia Artificial
         </span>
         <h1 className="text-white text-[22px] font-semibold">Asesor IA</h1>
@@ -102,7 +102,7 @@ export function AsesorIA({ onBack }) {
         <div className="flex-1 overflow-y-auto px-5 py-6 flex flex-col gap-5">
           {messages.length === 0 && (
             <div className="flex flex-col items-center justify-center h-full gap-6 text-center">
-              <div className="w-16 h-16 rounded-2xl bg-[#e63946] flex items-center justify-center shadow-lg">
+              <div className="w-16 h-16 rounded-2xl bg-[#0d9488] flex items-center justify-center shadow-lg">
                 <span className="text-white text-[26px]">🚗</span>
               </div>
               <div>
@@ -118,7 +118,7 @@ export function AsesorIA({ onBack }) {
                   <button
                     key={s}
                     onClick={() => sendMessage(s)}
-                    className="px-4 py-2 text-[12px] bg-white border border-[#e2e2e2] rounded-full text-[#444] hover:border-[#e63946] hover:text-[#e63946] transition-colors shadow-sm"
+                    className="px-4 py-2 text-[12px] bg-white border border-[#e2e2e2] rounded-full text-[#444] hover:border-[#0d9488] hover:text-[#0d9488] transition-colors shadow-sm"
                   >
                     {s}
                   </button>
@@ -133,7 +133,7 @@ export function AsesorIA({ onBack }) {
 
           {loading && (
             <div className="flex gap-3 items-end">
-              <div className="w-8 h-8 rounded-full bg-[#e63946] flex items-center justify-center flex-shrink-0 shadow-md">
+              <div className="w-8 h-8 rounded-full bg-[#0d9488] flex items-center justify-center flex-shrink-0 shadow-md">
                 <span className="text-white text-[10px] font-black">AC</span>
               </div>
               <div className="bg-white border border-[#ebebeb] rounded-[18px] rounded-bl-[4px] px-5 py-4 flex gap-1.5 items-center shadow-sm">
@@ -155,12 +155,12 @@ export function AsesorIA({ onBack }) {
             onKeyDown={(e) => e.key === 'Enter' && !e.shiftKey && sendMessage()}
             placeholder="Escribe tu consulta..."
             disabled={loading}
-            className="flex-1 px-4 py-2.5 text-[13px] bg-[#f5f5f5] border border-[#e8e8e8] rounded-full outline-none focus:border-[#e63946] focus:bg-white disabled:opacity-50 transition-all"
+            className="flex-1 px-4 py-2.5 text-[13px] bg-[#f5f5f5] border border-[#e8e8e8] rounded-full outline-none focus:border-[#0d9488] focus:bg-white disabled:opacity-50 transition-all"
           />
           <button
             onClick={() => sendMessage()}
             disabled={!input.trim() || loading}
-            className="w-10 h-10 bg-[#e63946] text-white rounded-full flex items-center justify-center hover:bg-[#c1121f] disabled:opacity-40 disabled:cursor-not-allowed transition-colors flex-shrink-0"
+            className="w-10 h-10 bg-[#0d9488] text-white rounded-full flex items-center justify-center hover:bg-[#0f766e] disabled:opacity-40 disabled:cursor-not-allowed transition-colors flex-shrink-0"
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <line x1="22" y1="2" x2="11" y2="13" />

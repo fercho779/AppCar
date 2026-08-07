@@ -46,14 +46,14 @@ export function VehicleDetail({ vehicle, onBack, onCompare }) {
       <div className="mb-5 flex items-center justify-between">
         <button
           onClick={onBack}
-          className="px-4 py-2 bg-white border border-[#e2e2e2] rounded-[10px] text-[13px] text-[#1a1a1a] hover:border-[#e63946] transition-colors"
+          className="px-4 py-2 bg-white border border-[#e2e2e2] rounded-[10px] text-[13px] text-[#1a1a1a] hover:border-[#0d9488] transition-colors"
         >
           ← Volver al catálogo
         </button>
 
         <button
           onClick={onCompare}
-          className="flex items-center gap-2 px-5 py-2 bg-[#e63946] text-white text-[13px] font-medium rounded-[10px] hover:bg-[#c1121f] transition-colors"
+          className="flex items-center gap-2 px-5 py-2 bg-[#0d9488] text-white text-[13px] font-medium rounded-[10px] hover:bg-[#0f766e] transition-colors"
         >
           <span className="text-[15px] leading-none">⇄</span>
           Comparar vehículo
@@ -117,13 +117,13 @@ export function VehicleDetail({ vehicle, onBack, onCompare }) {
           </div>
 
           <div className="p-6 border-r border-[#e2e2e2]">
-            <h3 className="text-[14px] font-semibold text-[#e63946] mb-3">
+            <h3 className="text-[14px] font-semibold text-[#0d9488] mb-3">
               Desventajas
             </h3>
             <ul className="space-y-2">
               {vehicle.desventajas.map((item, idx) => (
                 <li key={idx} className="flex items-start gap-2 text-[13px] text-[#5a5a5a]">
-                  <span className="text-[#e63946] mt-1">•</span>
+                  <span className="text-[#0d9488] mt-1">•</span>
                   <span>{item}</span>
                 </li>
               ))}
@@ -152,7 +152,7 @@ export function VehicleDetail({ vehicle, onBack, onCompare }) {
             className="w-full flex items-center justify-between px-6 py-4 text-[13px] font-medium text-[#1a1a1a] hover:bg-[#fafafa] transition-colors"
           >
             <span className="flex items-center gap-2">
-              <span className="text-[#e63946]">☰</span>
+              <span className="text-[#0d9488]">☰</span>
               Ver ficha técnica completa
             </span>
             <span className={`text-[11px] text-[#9a9a9a] transition-transform ${showFullSpecs ? 'rotate-180' : ''}`}>

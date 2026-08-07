@@ -28,7 +28,7 @@ export function Nosotros({ onBack }) {
 
       <button
         onClick={onBack}
-        className="self-start px-4 py-2 bg-white border border-[#e2e2e2] rounded-[10px] text-[13px] text-[#1a1a1a] hover:border-[#e63946] transition-colors"
+        className="self-start px-4 py-2 bg-white border border-[#e2e2e2] rounded-[10px] text-[13px] text-[#1a1a1a] hover:border-[#0d9488] transition-colors"
       >
         ← Volver al catálogo
       </button>
@@ -37,7 +37,7 @@ export function Nosotros({ onBack }) {
       <div className="bg-[#111111] rounded-[16px] px-8 py-8 flex flex-col gap-3">
         <div className="flex items-center gap-2">
           <span className="text-white text-[26px] font-semibold">App</span>
-          <span className="text-[#e63946] text-[26px] font-semibold">Car</span>
+          <span className="text-[#0d9488] text-[26px] font-semibold">Car</span>
           <span className="text-[#555] text-[11px] uppercase tracking-[2px] ml-1 mt-1">
             Asesor automotriz
           </span>
@@ -51,7 +51,7 @@ export function Nosotros({ onBack }) {
         <div className="flex gap-6 mt-2 pt-4 border-t border-[#2a2a2a]">
           {stats.map((s) => (
             <div key={s.label} className="flex flex-col gap-0.5">
-              <span className="text-[#e63946] text-[20px] font-semibold">{s.value}</span>
+              <span className="text-[#0d9488] text-[20px] font-semibold">{s.value}</span>
               <span className="text-[#666] text-[11px]">{s.label}</span>
             </div>
           ))}
@@ -89,9 +89,9 @@ export function Nosotros({ onBack }) {
 
       {/* Nuestra misión */}
       <div
-        className="rounded-[12px] px-6 py-5 border-l-4 border-[#e63946] bg-white border border-[#e2e2e2]"
+        className="rounded-[12px] px-6 py-5 border-l-4 border-[#0d9488] bg-white border border-[#e2e2e2]"
       >
-        <h2 className="text-[13px] font-semibold text-[#e63946] uppercase tracking-wider mb-2">
+        <h2 className="text-[13px] font-semibold text-[#0d9488] uppercase tracking-wider mb-2">
           Nuestra misión
         </h2>
         <p className="text-[13px] text-[#5a5a5a] leading-relaxed">

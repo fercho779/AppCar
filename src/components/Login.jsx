@@ -30,7 +30,7 @@ function Login({ onLogin, onGoToRegister }) {
             onChange={(e) => setEmail(e.target.value)}
             required
             className="w-full px-3 py-2 text-[14px] border border-[#d9d9d9] rounded-lg
-                       focus:outline-none focus:ring-2 focus:ring-[#e63946] focus:border-transparent"
+                       focus:outline-none focus:ring-2 focus:ring-[#0d9488] focus:border-transparent"
           />
         </div>
 
@@ -45,13 +45,13 @@ function Login({ onLogin, onGoToRegister }) {
             onChange={(e) => setPassword(e.target.value)}
             required
             className="w-full px-3 py-2 text-[14px] border border-[#d9d9d9] rounded-lg
-                       focus:outline-none focus:ring-2 focus:ring-[#e63946] focus:border-transparent"
+                       focus:outline-none focus:ring-2 focus:ring-[#0d9488] focus:border-transparent"
           />
         </div>
 
         <button
           type="submit"
-          className="w-full bg-[#e63946] text-white text-[14px] font-semibold
+          className="w-full bg-[#0d9488] text-white text-[14px] font-semibold
                      py-2.5 rounded-lg hover:bg-[#a80000] transition-colors"
         >
           Ingresar
@@ -62,7 +62,7 @@ function Login({ onLogin, onGoToRegister }) {
           <button
             type="button"
             onClick={onGoToRegister}
-            className="text-[#e63946] font-medium hover:underline"
+            className="text-[#0d9488] font-medium hover:underline"
           >
             Registrarse
           </button>

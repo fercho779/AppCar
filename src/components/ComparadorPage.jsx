@@ -13,14 +13,14 @@ export function ComparadorPage({ vehicles, onBack }) {
 
         <button
           onClick={onBack}
-          className="self-start px-4 py-2 bg-white border border-[#e2e2e2] rounded-[10px] text-[13px] text-[#1a1a1a] hover:border-[#e63946] transition-colors"
+          className="self-start px-4 py-2 bg-white border border-[#e2e2e2] rounded-[10px] text-[13px] text-[#1a1a1a] hover:border-[#0d9488] transition-colors"
         >
           ← Volver al catálogo
         </button>
 
         {/* Hero */}
         <div className="bg-[#111111] rounded-[16px] px-8 py-7 flex flex-col gap-2">
-          <span className="text-[#e63946] text-[11px] uppercase tracking-[2px] font-medium">
+          <span className="text-[#0d9488] text-[11px] uppercase tracking-[2px] font-medium">
             Comparador
           </span>
           <h1 className="text-white text-[22px] font-semibold">
@@ -54,13 +54,13 @@ export function ComparadorPage({ vehicles, onBack }) {
       <div className="flex items-center justify-between mb-4">
         <button
           onClick={onBack}
-          className="px-4 py-2 bg-white border border-[#e2e2e2] rounded-[10px] text-[13px] text-[#1a1a1a] hover:border-[#e63946] transition-colors"
+          className="px-4 py-2 bg-white border border-[#e2e2e2] rounded-[10px] text-[13px] text-[#1a1a1a] hover:border-[#0d9488] transition-colors"
         >
           ← Volver al catálogo
         </button>
         <button
           onClick={() => { setVehicleA(null); setVehicleB(null); }}
-          className="px-4 py-2 bg-white border border-[#e2e2e2] rounded-[10px] text-[13px] text-[#1a1a1a] hover:border-[#e63946] transition-colors"
+          className="px-4 py-2 bg-white border border-[#e2e2e2] rounded-[10px] text-[13px] text-[#1a1a1a] hover:border-[#0d9488] transition-colors"
         >
           ↺ Cambiar vehículo base
         </button>
@@ -68,7 +68,7 @@ export function ComparadorPage({ vehicles, onBack }) {
 
       {/* Barra del vehículo A */}
       <div className="bg-[#111111] rounded-[16px] px-6 py-4 flex items-center gap-3 mb-0">
-        <span className="text-[#e63946] text-[13px]">⇄</span>
+        <span className="text-[#0d9488] text-[13px]">⇄</span>
         <div>
           <span className="text-[#888] text-[10px] uppercase tracking-wider block">
             Vehículo base seleccionado

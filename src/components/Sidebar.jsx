@@ -57,7 +57,7 @@ export function Sidebar({
                   }}
                   className={`block px-3 py-2.5 text-[13px] transition-colors ${
                     isActive
-                      ? 'text-[#e63946] bg-[#fff1f2] border-l-[3px] border-l-[#e63946]'
+                      ? 'text-[#0d9488] bg-[#f0fdfa] border-l-[3px] border-l-[#0d9488]'
                       : 'text-[#1a1a1a] hover:bg-[#f8f8f8]'
                   }`}
                 >

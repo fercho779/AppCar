@@ -91,14 +91,14 @@ export function GuiaDeCompra({ onBack }) {
 
       <button
         onClick={onBack}
-        className="self-start px-4 py-2 bg-white border border-[#e2e2e2] rounded-[10px] text-[13px] text-[#1a1a1a] hover:border-[#e63946] transition-colors"
+        className="self-start px-4 py-2 bg-white border border-[#e2e2e2] rounded-[10px] text-[13px] text-[#1a1a1a] hover:border-[#0d9488] transition-colors"
       >
         ← Volver al catálogo
       </button>
 
       {/* Hero */}
       <div className="bg-[#111111] rounded-[16px] px-8 py-7 flex flex-col gap-2">
-        <span className="text-[#e63946] text-[11px] uppercase tracking-[2px] font-medium">
+        <span className="text-[#0d9488] text-[11px] uppercase tracking-[2px] font-medium">
           Info útil
         </span>
         <h1 className="text-white text-[22px] font-semibold leading-snug">
@@ -157,7 +157,7 @@ export function GuiaDeCompra({ onBack }) {
       {/* Checklist del comprador */}
       <div className="bg-white border border-[#e2e2e2] rounded-[12px] overflow-hidden">
         <div className="bg-[#111111] px-5 py-3 flex items-center gap-3">
-          <span className="text-[#e63946] text-[16px]">☑</span>
+          <span className="text-[#0d9488] text-[16px]">☑</span>
           <span className="text-white text-[13px] font-semibold tracking-wide">
             Checklist del comprador
           </span>
