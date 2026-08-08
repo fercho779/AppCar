@@ -1,17 +1,10 @@
 export function FilterBar({ activeFilter, onFilterChange }) {
-  const filters = [
-    'Todos',
-    'Ciudad',
-    'Off-road',
-    'Familia',
-    'Ruta larga',
-    'Trabajo'
-  ];
+  const filters = ['Todos', 'Ciudad', 'Off-road', 'Familia', 'Ruta larga', 'Trabajo'];
 
   return (
-    <div className="bg-white border border-[#e2e2e2] rounded-[10px] p-3.5">
-      <div className="text-[#9a9a9a] text-[11px] uppercase tracking-wider mb-2.5">
-        ¿PARA QUÉ LO VAS A USAR?
+    <div className="bg-gradient-to-r from-[#0f172a] to-[#0d3330] rounded-[14px] px-5 py-4">
+      <div className="text-white/40 text-[10px] uppercase tracking-widest mb-3 font-semibold">
+        Filtrar por uso
       </div>
       <div className="flex flex-wrap gap-2">
         {filters.map((filter) => {
@@ -20,10 +13,10 @@ export function FilterBar({ activeFilter, onFilterChange }) {
             <button
               key={filter}
               onClick={() => onFilterChange(filter)}
-              className={`px-4 py-1.5 text-[12px] rounded-[20px] border transition-colors ${
+              className={`px-4 py-1.5 text-[12px] rounded-full font-medium transition-all duration-150 ${
                 isActive
-                  ? 'bg-[#0d9488] text-white border-[#0d9488]'
-                  : 'bg-[#f5f5f5] text-[#1a1a1a] border-[#e2e2e2] hover:border-[#0d9488]'
+                  ? 'bg-[#0d9488] text-white shadow-[0_0_14px_rgba(13,148,136,0.45)]'
+                  : 'bg-white/10 text-white/65 hover:bg-white/20 hover:text-white'
               }`}
             >
               {filter}

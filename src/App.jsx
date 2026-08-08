@@ -97,7 +97,7 @@ export default function App() {
     if (vehicle) {
       return (
         <>
-          <div className="min-h-screen bg-[#f7f7f7]">
+          <div className="min-h-screen bg-[#f8fafc]">
             <Header activeNav={activeNav} onNavChange={handleNavChange} onLogoClick={() => setCurrentView('landing')} />
             <div className="max-w-[1100px] mx-auto py-6 px-5">
               <VehicleDetail
@@ -135,7 +135,7 @@ export default function App() {
   // ── Vista: Asesor IA ───────────────────────────────────────────────────────
   if (currentView === 'asesor') {
     return (
-      <div className="min-h-screen bg-[#f7f7f7]">
+      <div className="min-h-screen bg-[#f8fafc]">
         <Header activeNav="Asesor IA" onNavChange={handleNavChange} onLogoClick={() => setCurrentView('landing')} />
         <div className="max-w-[1100px] mx-auto py-6 px-5">
           <AsesorIA onBack={() => setCurrentView('vehicles')} />
@@ -148,7 +148,7 @@ export default function App() {
   if (currentView === 'comparador') {
     return (
       <>
-        <div className="min-h-screen bg-[#f7f7f7]">
+        <div className="min-h-screen bg-[#f8fafc]">
           <Header activeNav="Comparador" onNavChange={handleNavChange} onLogoClick={() => setCurrentView('landing')} />
           <div className="max-w-[1100px] mx-auto py-6 px-5">
             <div className="mb-4">
@@ -168,7 +168,7 @@ export default function App() {
   if (currentView === 'nosotros' || currentView === 'contacto') {
     return (
       <>
-        <div className="min-h-screen bg-[#f7f7f7]">
+        <div className="min-h-screen bg-[#f8fafc]">
           <Header activeNav={activeNav} onNavChange={handleNavChange} onLogoClick={() => setCurrentView('landing')} />
           <div className="max-w-[1100px] mx-auto py-6 px-5">
             {currentView === 'nosotros' && <Nosotros onBack={() => setCurrentView('vehicles')} />}
@@ -183,7 +183,7 @@ export default function App() {
   // ── Vista: Guía de compra (con sidebar visible) ────────────────────────────
   if (currentView === 'guia') {
     return (
-      <div className="min-h-screen bg-[#f7f7f7]">
+      <div className="min-h-screen bg-[#f8fafc]">
         <Header activeNav={activeNav} onNavChange={handleNavChange} onLogoClick={() => setCurrentView('landing')} />
         <div className="max-w-[1100px] mx-auto py-6 px-5">
           <div className="flex gap-5">
@@ -224,7 +224,7 @@ export default function App() {
     );
 
   return (
-    <div className="min-h-screen bg-[#f7f7f7]">
+    <div className="min-h-screen bg-[#f8fafc]">
       <Header activeNav={activeNav} onNavChange={handleNavChange} onLogoClick={() => setCurrentView('landing')} />
 
       <div className="max-w-[1100px] mx-auto py-6 px-5">
