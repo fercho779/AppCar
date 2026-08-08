@@ -18,13 +18,13 @@ function FloatingIA({ onClick }) {
     <button
       onClick={onClick}
       title="Abrir Asesor IA"
-      className="fixed bottom-6 right-6 z-40 flex items-center gap-2.5 bg-[#0f172a] text-white pl-3.5 pr-4 py-2.5 rounded-full shadow-xl hover:bg-[#1e293b] transition-all"
+      className="fixed bottom-6 right-6 z-40 flex items-center gap-2.5 bg-[#e11d48] text-white pl-3.5 pr-4 py-2.5 rounded-full shadow-[0_4px_20px_rgba(225,29,72,0.45)] hover:bg-[#be123c] hover:shadow-[0_4px_28px_rgba(225,29,72,0.6)] transition-all"
     >
       <div className="relative flex-shrink-0">
-        <div className="w-2 h-2 bg-emerald-400 rounded-full" />
-        <div className="absolute inset-0 w-2 h-2 bg-emerald-400 rounded-full animate-ping opacity-70" />
+        <div className="w-2 h-2 bg-white rounded-full" />
+        <div className="absolute inset-0 w-2 h-2 bg-white rounded-full animate-ping opacity-70" />
       </div>
-      <span className="text-[13px] font-medium">Asesor IA</span>
+      <span className="text-[13px] font-semibold">Asesor IA</span>
     </button>
   );
 }

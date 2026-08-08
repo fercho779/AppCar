@@ -8,7 +8,7 @@ export function Header({ activeNav, onNavChange, onLogoClick }) {
         className="flex items-center gap-1 hover:opacity-80 transition-opacity"
       >
         <span className="text-white text-[22px] font-black tracking-tight">App</span>
-        <span className="text-[#0d9488] text-[22px] font-black tracking-tight">Car</span>
+        <span className="text-white text-[22px] font-black tracking-tight">Car</span>
       </button>
 
       <nav className="flex items-center gap-1">
