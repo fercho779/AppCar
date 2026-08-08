@@ -1,9 +1,18 @@
+import { useState } from 'react';
+
 export function Landing({ onEnter }) {
+  const [videoReady, setVideoReady] = useState(false);
+
   return (
-    <div className="relative h-screen overflow-hidden">
+    <div className="relative h-screen overflow-hidden bg-[#080c10]">
       <video
-        className="absolute inset-0 w-full h-full object-cover"
-        autoPlay loop muted playsInline
+        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${videoReady ? 'opacity-100' : 'opacity-0'}`}
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="auto"
+        onCanPlay={() => setVideoReady(true)}
       >
         <source src="/hero-video.mp4" type="video/mp4" />
       </video>
