@@ -202,6 +202,8 @@ export function VehicleComparator({ vehicleA, vehicleB, onClose, vehicles, onCha
         </div>
 
         {/* Cabeceras de los dos autos */}
+        <div className="overflow-x-auto">
+        <div className="min-w-[500px]">
         <div className="bg-white border-x border-[#e2e2e2]">
           <div className="grid grid-cols-[160px_1fr_1fr]">
             <div className="bg-[#fafafa] border-r border-[#e2e2e2]" />
@@ -258,7 +260,7 @@ export function VehicleComparator({ vehicleA, vehicleB, onClose, vehicles, onCha
 
         {/* Tabla de comparación (lo esencial, sin saturar) */}
         <div className="border border-[#e2e2e2] rounded-b-[16px] overflow-hidden">
-          <table className="w-full border-collapse">
+          <table className="w-full min-w-[500px] border-collapse">
             <tbody className="divide-y divide-[#e2e2e2]">
 
               {/* ── Sección: General ─────────────────────────── */}
@@ -386,6 +388,9 @@ export function VehicleComparator({ vehicleA, vehicleB, onClose, vehicles, onCha
           </table>
         </div>
 
+        </div>
+        </div>
+
         {/* Leyenda ganadores */}
         <div className="mt-3 flex items-center justify-between px-1">
           <div className="flex items-center gap-2">
@@ -405,46 +410,48 @@ export function VehicleComparator({ vehicleA, vehicleB, onClose, vehicles, onCha
 
         {/* Comparación avanzada: colapsada por defecto para no abrumar */}
         {showFullSpecs && (
-          <div className="mt-3 border border-[#e2e2e2] rounded-[16px] overflow-hidden">
-            <table className="w-full border-collapse">
-              <tbody className="divide-y divide-[#e2e2e2]">
-                {SPEC_SECTIONS.map((section) => (
-                  <Fragment key={section.id}>
-                    <tr className="bg-[#111111]">
-                      <td colSpan={3} className="px-4 py-2">
-                        <span className="text-[10px] text-[#888] uppercase tracking-[2px] font-medium">
-                          {section.title}
-                        </span>
-                      </td>
-                    </tr>
-                    {section.fields.map((field, i) => {
-                      const valueA = getSpecValue(vehicleA.specs, field.path);
-                      const valueB = getSpecValue(vehicleB.specs, field.path);
-                      let winA = false;
-                      let winB = false;
-                      if (field.type === 'bool') {
-                        winA = !!valueA && !valueB;
-                        winB = !!valueB && !valueA;
-                      } else if (field.type === 'number') {
-                        winA = typeof valueA === 'number' && typeof valueB === 'number' && valueA > valueB;
-                        winB = typeof valueA === 'number' && typeof valueB === 'number' && valueB > valueA;
-                      }
-                      return (
-                        <CompareRow
-                          key={field.path}
-                          label={field.label}
-                          valueA={formatSpecValue(field, vehicleA.specs)}
-                          valueB={formatSpecValue(field, vehicleB.specs)}
-                          highlight={i % 2 === 0}
-                          winA={winA}
-                          winB={winB}
-                        />
-                      );
-                    })}
-                  </Fragment>
-                ))}
-              </tbody>
-            </table>
+          <div className="mt-3 overflow-x-auto">
+            <div className="min-w-[500px] border border-[#e2e2e2] rounded-[16px] overflow-hidden">
+              <table className="w-full border-collapse">
+                <tbody className="divide-y divide-[#e2e2e2]">
+                  {SPEC_SECTIONS.map((section) => (
+                    <Fragment key={section.id}>
+                      <tr className="bg-[#111111]">
+                        <td colSpan={3} className="px-4 py-2">
+                          <span className="text-[10px] text-[#888] uppercase tracking-[2px] font-medium">
+                            {section.title}
+                          </span>
+                        </td>
+                      </tr>
+                      {section.fields.map((field, i) => {
+                        const valueA = getSpecValue(vehicleA.specs, field.path);
+                        const valueB = getSpecValue(vehicleB.specs, field.path);
+                        let winA = false;
+                        let winB = false;
+                        if (field.type === 'bool') {
+                          winA = !!valueA && !valueB;
+                          winB = !!valueB && !valueA;
+                        } else if (field.type === 'number') {
+                          winA = typeof valueA === 'number' && typeof valueB === 'number' && valueA > valueB;
+                          winB = typeof valueA === 'number' && typeof valueB === 'number' && valueB > valueA;
+                        }
+                        return (
+                          <CompareRow
+                            key={field.path}
+                            label={field.label}
+                            valueA={formatSpecValue(field, vehicleA.specs)}
+                            valueB={formatSpecValue(field, vehicleB.specs)}
+                            highlight={i % 2 === 0}
+                            winA={winA}
+                            winB={winB}
+                          />
+                        );
+                      })}
+                    </Fragment>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         )}
       </div>

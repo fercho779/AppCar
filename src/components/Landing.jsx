@@ -73,8 +73,8 @@ export function Landing({ onEnter }) {
         </div>
       </div>
 
-      {/* QR — esquina inferior derecha, tamaño TV */}
-      <div className="absolute bottom-7 right-8 z-20 flex flex-col items-center gap-2">
+      {/* QR — esquina inferior derecha, solo desktop/TV */}
+      <div className="absolute bottom-7 right-8 z-20 hidden md:flex flex-col items-center gap-2">
         <div className="bg-white p-3 rounded-[12px] shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
           <img src="/qr-code.png" alt="QR AppCar" className="w-[148px] h-[148px] block" />
         </div>
