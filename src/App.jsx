@@ -228,7 +228,7 @@ export default function App() {
       <Header activeNav={activeNav} onNavChange={handleNavChange} onLogoClick={() => setCurrentView('landing')} />
 
       <div className="max-w-[1100px] mx-auto py-6 px-5">
-        <div className="flex gap-5">
+        <div className="flex flex-col gap-4 md:flex-row md:gap-5">
           <Sidebar
             activeLink={sidebarCategory}
             categories={categories}
@@ -263,7 +263,7 @@ export default function App() {
             </div>
 
             {filteredVehicles.length > 0 ? (
-              <div className="grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-3">
+              <div className="grid grid-cols-2 sm:grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-3">
                 {filteredVehicles.map((vehicle) => (
                   <VehicleCard
                     key={vehicle.id}
