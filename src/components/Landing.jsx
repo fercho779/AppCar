@@ -73,12 +73,15 @@ export function Landing({ onEnter }) {
         </div>
       </div>
 
-      {/* QR — esquina inferior derecha, no rompe el layout */}
-      <div className="absolute bottom-7 right-8 z-20 flex flex-col items-center gap-1.5">
-        <div className="bg-white/90 backdrop-blur-sm p-2 rounded-[10px] shadow-lg">
-          <img src="/qr-code.png" alt="QR AppCar" className="w-[72px] h-[72px] block" />
+      {/* QR — esquina inferior derecha, tamaño TV */}
+      <div className="absolute bottom-7 right-8 z-20 flex flex-col items-center gap-2">
+        <div className="bg-white p-3 rounded-[12px] shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
+          <img src="/qr-code.png" alt="QR AppCar" className="w-[148px] h-[148px] block" />
         </div>
-        <span className="text-white/55 text-[10px] uppercase tracking-widest">Escanear</span>
+        <div className="text-center">
+          <p className="text-white text-[13px] font-semibold leading-tight">Escaneá el código</p>
+          <p className="text-white/55 text-[11px]">y visitá AppCar</p>
+        </div>
       </div>
     </div>
   );
